@@ -1,115 +1,91 @@
-# cursor-skills-presentation
+# Presentation planning — agent skill
 
-Repository for the **presentation-authoring** skill: define theme, audience, narrative arc, and composition *before* you build slides or speaker notes. Optional reference covers the OKR–Jira single-file HTML deck pattern.
+Portable **presentation-planning** skill: decide theme, audience, story structure, and pacing **before** you build slides or speaker notes.
 
 ---
 
-## What’s in this repo
+## Layout in this repository
 
 | Path | Purpose |
 |------|---------|
-| `.cursor/skills/presentation-authoring/SKILL.md` | Main skill (strategy-first workflow) |
-| `.cursor/skills/presentation-authoring/references/okr-html-slide-deck.md` | HTML deck tokens, `.rv`/`.step`, components, checklist |
+| `presentation-planning/SKILL.md` | Main skill (frame → outline → build) |
+| `presentation-planning/references/html-slide-deck.md` | Optional mechanics for a single-file HTML deck (patterns + examples to replace) |
 
-The canonical copy of the skill lives under **`.cursor/skills/`** so Cursor picks it up when this folder is opened or when you symlink that path into another project.
+Install by copying or symlinking the **`presentation-planning`** folder wherever your tooling expects a skill directory.
+
+```bash
+REPO="/absolute/path/to/this-repo"
+SKILL="$REPO/presentation-planning"
+```
 
 ---
 
-## Cursor
+## Install: `.cursor/skills/` layout
 
-**Project-only (this repo)**  
-Open the repo in Cursor; skills under `.cursor/skills/` are loaded for this workspace.
-
-**Another project** — copy or symlink the skill folder:
+Some products discover skills at `<workspace>/.cursor/skills/<skill-id>/SKILL.md` or under a user-level `~/.cursor/skills/` directory.
 
 ```bash
-REPO="$HOME/Documents/cursor-skills-presentation"   # adjust if yours differs
-DEST="/path/to/your/project/.cursor/skills"
+DEST="/path/to/workspace/.cursor/skills"
 mkdir -p "$DEST"
-ln -s "$REPO/.cursor/skills/presentation-authoring" "$DEST/presentation-authoring"
-# or: cp -R "$REPO/.cursor/skills/presentation-authoring" "$DEST/"
+ln -s "$SKILL" "$DEST/presentation-planning"
+# or: cp -R "$SKILL" "$DEST/presentation-planning"
 ```
 
-**All Cursor workspaces (user skills)**
-
-```bash
-mkdir -p ~/.cursor/skills
-ln -s "$HOME/Documents/cursor-skills-presentation/.cursor/skills/presentation-authoring" \
-  ~/.cursor/skills/presentation-authoring
-```
-
-Do not install under `~/.cursor/skills-cursor/` — that tree is reserved for Cursor’s built-ins.
+Use only **user- or project-owned** `skills` directories. Do not overwrite vendor-managed skill bundles that ship with a product.
 
 ---
 
-## Claude Code
+## Install: Claude Code (`.claude/skills/`)
 
-Claude Code loads skills from **`.claude/skills/<skill-name>/SKILL.md`** (project root) or from your user config directory (same layout). This repo uses the same `SKILL.md` + `references/` layout Cursor expects.
-
-**Symlink into a project** (keeps this repo as source of truth):
+Claude Code expects **`.claude/skills/<skill-id>/SKILL.md`** at the project root (or the equivalent user config location).
 
 ```bash
-REPO="$HOME/Documents/cursor-skills-presentation"
 PROJ="/path/to/your/project"
 mkdir -p "$PROJ/.claude/skills"
-ln -s "$REPO/.cursor/skills/presentation-authoring" "$PROJ/.claude/skills/presentation-authoring"
+ln -s "$SKILL" "$PROJ/.claude/skills/presentation-planning"
 ```
 
-**User-wide (all projects using that machine’s Claude Code config)**
+User-wide (if your setup supports it):
 
 ```bash
-# Typical user skills location; if your install differs, mirror the same folder shape.
 mkdir -p ~/.claude/skills
-ln -s "$HOME/Documents/cursor-skills-presentation/.cursor/skills/presentation-authoring" \
-  ~/.claude/skills/presentation-authoring
+ln -s "$SKILL" ~/.claude/skills/presentation-planning
 ```
 
-After linking, restart the Claude Code session or rescan skills so **`presentation-authoring`** appears in skill discovery.
+Restart or rescan skills so **presentation-planning** is picked up.
 
 ---
 
-## Codex (OpenAI)
+## Install: Codex and other agents (`AGENTS.md` / instructions)
 
-Codex does not use the same `.cursor/skills/` discovery path. Use **project instructions** so the agent loads this content when relevant.
-
-**Option A — `AGENTS.md` in the repo where you use Codex**
-
-Add (or merge) something like:
+Reference the skill by path in project instructions.
 
 ```markdown
-## Presentation work
+## Presentations
 
-When the user plans or writes a presentation, slide deck, or talk outline, read and follow the instructions in:
+When the user plans or writes a presentation, slide deck, or talk outline, read and follow:
 
-`../cursor-skills-presentation/.cursor/skills/presentation-authoring/SKILL.md`
-
-For the OKR–Jira HTML single-file deck, also read:
-
-`../cursor-skills-presentation/.cursor/skills/presentation-authoring/references/okr-html-slide-deck.md`
-
-(Adjust the relative path so it resolves from that project’s root.)
+`/absolute/path/to/this-repo/presentation-planning/SKILL.md`
 ```
 
-**Option B — copy the skill into the Codex project**
+Add a second path to `references/html-slide-deck.md` only when working on a single-file HTML deck in that project.
+
+---
+
+## Open this repo with a skills bridge
+
+If your environment only loads skills from `.cursor/skills/` inside the workspace:
 
 ```bash
-cp -R "$HOME/Documents/cursor-skills-presentation/.cursor/skills/presentation-authoring" \
-  /path/to/codex-project/docs/presentation-authoring
+cd "$REPO"
+mkdir -p .cursor/skills
+ln -sf "$PWD/presentation-planning" .cursor/skills/presentation-planning
 ```
 
-Then point `AGENTS.md` at `docs/presentation-authoring/SKILL.md`.
-
-**Option C — global Codex instructions**  
-If your Codex CLI or IDE integration supports a global instructions file, paste the same “read this path when…” rule there, using an absolute path to this repo’s `SKILL.md`.
+Keep that symlink local unless your team wants it committed.
 
 ---
 
 ## Updating
 
-Pull or edit this repo, then refresh symlinks (they keep pointing at the updated files). If you copied instead of symlinked, re-run `cp -R`.
-
----
-
-## Related: OKR HTML deck
-
-The deck that motivated the reference doc usually lives in a separate clone (for example `~/Documents/okrs`). Keep that repo’s **`CLAUDE.md`** as the full technical spec for `okr-jira-planning.html`; this repo holds the reusable skill and a short implementation cheat sheet.
+Pull or edit this repository. Symlinks track updates; copies need a fresh `cp -R`.

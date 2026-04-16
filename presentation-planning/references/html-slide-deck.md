@@ -1,21 +1,23 @@
-# OKR–Jira single-file HTML slide deck
+# Single-file HTML slide deck (implementation reference)
 
-Companion to **`presentation-authoring`** when editing the deck in `okr-jira-planning.html`. Authoritative technical detail lives in the deck repository’s **`CLAUDE.md`**.
+Companion to **`presentation-planning`**. Use when building or editing a **one HTML file** deck (inline CSS + JS). Replace example tokens, section names, and domain rules with whatever matches **your** deck; keep the structural patterns (two reveal systems, `SECTIONS`, slide anatomy).
 
-**Preview:** open `okr-jira-planning.html` in a browser; refresh after edits.
+Authoritative detail for a given repo should live in that repo’s maintainer doc (**`CLAUDE.md`**, **`AGENTS.md`**, or similar).
 
-**Viewport:** ~1440 × 900 px (16:9). Content column `max-width: 860px`; side media may extend beyond.
+**Preview:** open your deck HTML in a browser; refresh after edits.
 
----
-
-## File and docs
-
-- **Implementation:** one HTML file — `<style>`, `<body>` sections, `<script>` for nav and reveal.
-- **Full reference:** `CLAUDE.md` in the same repo (components, `IntersectionObserver`, `syncCascade`, renumbering).
+**Viewport (example):** ~1440 × 900 px (16:9). Content column `max-width: 860px`; side media may extend beyond.
 
 ---
 
-## Design tokens (always variables)
+## File shape
+
+- **Implementation:** one HTML file — `<style>`, `<body>` with `<section>` slides, `<script>` for nav and reveal.
+- **Full reference:** maintainer doc in the repo that owns the HTML file.
+
+---
+
+## Design tokens (example — use variables)
 
 ```
 --okr-color: #4f8eff       OKR theory (blue)
@@ -42,7 +44,7 @@ One-off `rgba(..., .08)` tints are acceptable. Avoid stray hex elsewhere.
 | One-shot scroll reveal | `.rv` / `.vis` (+ `.d1`–`.d4`) | Tag, title, subtitle, main block on slide enter |
 | Progressive steps | `.step` / `.visible` | Cards, rows, chains; register in step-config |
 
-Connectors after a step: `.step.visible + .connector-class { opacity: 1; }` — see `CLAUDE.md` for class names.
+Connectors after a step: `.step.visible + .connector-class { opacity: 1; }` — list connector classes in your maintainer doc.
 
 ---
 
@@ -59,7 +61,7 @@ Connectors after a step: `.step.visible + .connector-class { opacity: 1; }` — 
 
 ---
 
-## SECTIONS array (example — verify in repo)
+## SECTIONS array (example — verify in your file)
 
 ```js
 { name: 'OKR Principles',  abbr: 'OKR',  slides: ['s1','s2',...,'s7'] },
@@ -86,17 +88,19 @@ Connectors after a step: `.step.visible + .connector-class { opacity: 1; }` — 
 
 ---
 
-## Domain content rules (this deck)
+## Example domain rules (swap for your topic)
+
+Illustrative rules from one planning deck; do not treat as universal.
 
 - **Two roadmaps:** Tech (`--em-color`) vs Product (`--pm-color`) — do not collapse on hierarchy/cascade slides.
 - **Jira Objective:** `--jira-objective-color` at Objective level; ownership badges separate.
-- **“OKR planning”** at Bidswitch = quarterly output planning; acknowledge gap vs classic outcome OKRs where relevant.
+- **“OKR planning”** in a given org = quarterly output planning; acknowledge gap vs classic outcome OKRs where relevant.
 - **Hypothesis ≠ hallucination.**
 - **Story size:** “up to 2 Story Points”. **Sub-task** not “Sub-task / Commit”.
 
 ---
 
-## Example narrative arc (this deck)
+## Example narrative arc (same sample deck)
 
 Definition → flow/negotiation → Jira mapping → local reality vs theory → planning mechanics → IC perspective → summary/Q&A.
 
@@ -122,4 +126,4 @@ Renumber **highest to lowest**: IDs, comments, `SECTIONS`, step-config, promotio
 - [ ] Two-roadmap distinction where applicable
 - [ ] Slide counter matches count; `SECTIONS` complete and disjoint
 
-For SVG, cascade/Venn, and full CSS, use **`CLAUDE.md`** in the deck repo.
+For SVG, cascade/Venn, and full CSS, use your deck repository’s maintainer documentation.

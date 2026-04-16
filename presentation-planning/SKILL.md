@@ -1,18 +1,18 @@
 ---
-name: presentation-authoring
+name: presentation-planning
 description: >-
-  Frames and structures live or slide presentations: theme, audience, narrative
-  arc, composition, pacing, and progressive disclosure. Use when planning a
-  talk or deck, outlining story beats, or aligning content with listeners before
-  implementation. For the Bidswitch OKR–Jira single-file HTML deck, pair with
-  references/okr-html-slide-deck.md and the deck project CLAUDE.md.
+  Plans talks and slide decks before implementation: theme, audience, narrative
+  arc, composition, pacing, and progressive disclosure. Use when outlining a
+  presentation, aligning content with listeners, or sequencing story beats.
+  Optional: references/html-slide-deck.md for single-file HTML deck mechanics
+  alongside the project’s maintainer doc (e.g. CLAUDE.md or AGENTS.md).
 ---
 
-# Presentation authoring
+# Presentation planning
 
-Use this skill **before** drafting slides or speaker notes. Implementation (Keynote, HTML, etc.) comes after the outline passes the framing checks.
+Use this skill **before** you lock slide layout, tooling, or visuals. First decide what the room needs to believe, feel, and do; then implement in Keynote, HTML, PDF, or whatever medium fits.
 
-**Optional — OKR/Jira HTML deck in this workspace:** if the project contains `okr-jira-planning.html`, read [references/okr-html-slide-deck.md](references/okr-html-slide-deck.md) and that repo’s `CLAUDE.md` for tokens, components, and JS.
+**Optional — single-file HTML deck in the workspace:** if you maintain a one-file slide HTML, see [references/html-slide-deck.md](references/html-slide-deck.md) plus that project’s maintainer documentation for tokens, components, and scripts.
 
 ---
 
@@ -20,9 +20,9 @@ Use this skill **before** drafting slides or speaker notes. Implementation (Keyn
 
 1. **Frame** — theme, audience, outcome (sections 1–2).
 2. **Outline** — story beats and section flow (sections 3–4).
-3. **Implement** — chosen medium; for the single-file HTML deck follow the reference doc.
+3. **Build** — chosen medium; for the HTML pattern in this repo’s reference, follow that doc.
 
-Do not lock layout or animations until the outline answers the framing questions.
+Do not commit to layout or step-by-step reveals until the outline answers the framing questions.
 
 ---
 
@@ -105,5 +105,5 @@ Story beats, not slide count:
 
 | Medium | Follow |
 |--------|--------|
-| OKR–Jira single-file HTML (`okr-jira-planning.html`) | [references/okr-html-slide-deck.md](references/okr-html-slide-deck.md) + deck repo `CLAUDE.md` |
-| Other | Project conventions; keep this skill’s strategy sections as the default frame |
+| Single-file HTML slide deck (pattern in this repo) | [references/html-slide-deck.md](references/html-slide-deck.md) + your project maintainer doc |
+| Other | Project conventions; keep this skill’s framing sections as the default |
