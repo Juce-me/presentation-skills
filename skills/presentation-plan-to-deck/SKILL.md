@@ -1,11 +1,11 @@
 ---
-name: presentation-plan-to-deck
+
+## name: presentation-plan-to-deck
 description: >-
   Converts an approved presentation plan into a concrete presentation deck. Use
   when you already know the audience, through-line, and slide flow and now need
   to produce slide structure, layout decisions, reveal order, animation, and
   implementation-ready deck content.
----
 
 # Presentation plan to deck
 
@@ -23,48 +23,43 @@ Expected input:
 - slide intents or section flow
 - optional branding, examples, constraints, or design system references
 
-If the plan is weak or incomplete, stop and send it back to **`brief-to-presentation-plan`** rather than improvising a deck on shaky foundations.
+If the plan is weak or incomplete, stop and send it back to `**brief-to-presentation-plan**` rather than improvising a deck on shaky foundations.
 
 ---
 
 ## Workflow
 
 1. **Translate plan to slide units**
-   Default rule: one slide, one main idea.
-
+  Default rule: one slide, one main idea.
 2. **Assign each slide a job**
-   For every slide, define:
-   - title
-   - purpose
-   - key message
-   - evidence or examples
-   - transition to the next slide
-
+  For every slide, define:
+  - title
+  - purpose
+  - key message
+  - evidence or examples
+  - transition to the next slide
 3. **Choose composition**
-   Decide whether the slide is best expressed as:
-   - title + statement
-   - comparison
-   - diagram
-   - process flow
-   - hierarchy
-   - phased sequence
-   - summary / takeaway
-
+  Decide whether the slide is best expressed as:
+  - title + statement
+  - comparison
+  - diagram
+  - process flow
+  - hierarchy
+  - phased sequence
+  - summary / takeaway
 4. **Specify reveal order**
-   Reveals and animation should match the spoken story:
-   - premise before punchline
-   - framework before detail
-   - tension before resolution
-
+  Reveals and animation should match the spoken story:
+  - premise before punchline
+  - framework before detail
+  - tension before resolution
 5. **Design for presentation readability**
-   Prefer large readable text, strong contrast, and clean visual hierarchy. Avoid website-density slides.
-
+  Prefer large readable text, strong contrast, and clean visual hierarchy. Avoid website-density slides.
 6. **Produce implementation-ready deck content**
-   The output can be:
-   - slide-by-slide deck spec
-   - draft slide copy
-   - HTML deck changes
-   - instructions for another deck tool
+  The output can be:
+  - slide-by-slide deck spec
+  - draft slide copy
+  - HTML deck changes
+  - instructions for another deck tool
 
 ---
 
@@ -130,4 +125,4 @@ For one-file HTML slide decks with inline CSS and JS:
 
 ## Handoff
 
-After a deck exists, use **`deck-review-update`** to review the story, pacing, and improvement opportunities.
+After a deck exists, use `**deck-review-update`** to review the story, pacing, and improvement opportunities.
