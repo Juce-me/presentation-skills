@@ -89,6 +89,25 @@ Use this format when building or handing off the deck:
 
 ---
 
+## Presentation description
+
+When the user asks "what is this presentation about?" or "write a description of this presentation", generate a short friendly text — not a slide, not a list.
+
+The output format:
+
+**Summary:** [title of the presentation — one short phrase]
+**Description:** [2–4 sentences in plain, warm language covering what the audience will get out of it]
+
+Write it as if it were the body of a calendar invite or an email to attendees. The tone should feel like an invitation: give enough context to make someone want to show up, without summarising every point. No bullet lists, no jargon, no agenda structure.
+
+Example output:
+
+> **Summary:** Onboarding flow review
+>
+> **Description:** We'll walk through how the current onboarding experience works, what we've changed recently based on user feedback, and where we're taking it next. Whether you're new to the product or just want a refresher, this session will give you the full picture.
+
+---
+
 ## Accuracy rules
 
 - Every slide must trace back to the approved plan.

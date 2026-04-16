@@ -98,6 +98,21 @@ If there are no major issues, say that explicitly and call out any residual risk
 
 ---
 
+## Slide complexity check
+
+During review, flag any slide that is doing too much. Signs of a complicated slide:
+
+- more than one distinct concept or argument
+- multiple charts, diagrams, or data tables on the same slide
+- a layout that requires the speaker to explain how to read the slide before reading it
+- text or visual elements that are shrunk to fit rather than naturally sized
+
+**Default action: split into separate slides.**
+
+Each split slide gets its own job, its own title, and its own reveal logic. Prefer two clean slides over one complex one. A slide that needs a tour guide is a slide that needs to be broken apart.
+
+---
+
 ## When to send work backward
 
 If the deck problems come from a weak plan rather than weak execution, send it back to **`brief-to-presentation-plan`** or **`presentation-plan-to-deck`** as appropriate instead of patching endlessly.

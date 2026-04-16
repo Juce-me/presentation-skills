@@ -158,6 +158,82 @@ Keep that symlink local unless your team wants it committed.
 
 ---
 
-## Updating
+## Updating a skill
 
-Pull or edit this repository. Symlinks track updates; copies need a fresh `cp -R`.
+### How the install works
+
+`install-all.sh` creates **symlinks** from the platform's skills directory back to `skills/` in this repo. This means any edit you make to a `SKILL.md` file here is immediately live — no reinstall step needed.
+
+```
+~/.cursor/skills/deck-review-update  ->  <repo>/skills/deck-review-update/
+~/.claude/skills/deck-review-update  ->  <repo>/skills/deck-review-update/
+~/.agents/skills/presentation-skills ->  <repo>/skills/
+```
+
+If you installed with `cp -R` (manual copy) instead of the script, you need to copy again after each change.
+
+---
+
+### Edit process
+
+1. **Open the skill file** you want to change:
+
+   ```
+   skills/brief-to-presentation-plan/SKILL.md
+   skills/presentation-plan-to-deck/SKILL.md
+   skills/deck-review-update/SKILL.md
+   ```
+
+2. **Make the edit** — add a rule, update a section, remove outdated guidance.
+
+3. **Verify** by reading the file back and checking for broken markdown, duplicate sections, or conflicting rules.
+
+4. **Commit** with a short message describing what changed and why:
+
+   ```bash
+   git add skills/<skill-name>/SKILL.md
+   git commit -m "deck-review-update: add slide complexity check rule"
+   ```
+
+Because installs are symlinks, the change is picked up by the agent on the next conversation — no further steps required.
+
+---
+
+### Adding a new skill
+
+1. Create a new directory under `skills/`:
+
+   ```bash
+   mkdir -p skills/<new-skill-name>
+   ```
+
+2. Add `SKILL.md` following the existing skill structure (frontmatter name + description, then sections).
+
+3. Run the install script so the new skill gets linked:
+
+   ```bash
+   ./scripts/install-all.sh cursor
+   ./scripts/install-all.sh claude
+   ./scripts/install-all.sh codex
+   ```
+
+4. Commit the new skill directory.
+
+---
+
+### Removing a skill
+
+1. Delete the skill directory:
+
+   ```bash
+   rm -rf skills/<skill-name>
+   ```
+
+2. Remove any dangling symlinks from the platform directories (they will point to nothing and are safe to delete):
+
+   ```bash
+   rm ~/.cursor/skills/<skill-name>
+   rm ~/.claude/skills/<skill-name>
+   ```
+
+3. Commit the deletion.
