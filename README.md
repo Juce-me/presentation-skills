@@ -1,22 +1,50 @@
-# Presentation planning — agent skill
+# Presentation skills
 
-Portable **presentation-planning** skill: decide theme, audience, story structure, and pacing **before** you build slides or speaker notes.
+Portable skill set for creating presentations from input, turning plans into decks, and reviewing decks for story quality.
 
 ---
 
-## Layout in this repository
+## Skills in this repository
 
 | Path | Purpose |
 |------|---------|
-| `presentation-planning/SKILL.md` | Main skill (frame → outline → build) |
-| `presentation-planning/references/html-slide-deck.md` | Optional mechanics for a single-file HTML deck (patterns + examples to replace) |
+| `skills/brief-to-presentation-plan/SKILL.md` | Turn a brief, notes, transcript, or doc into a presentation plan |
+| `skills/presentation-plan-to-deck/SKILL.md` | Turn an approved plan into an actual deck with layout and reveal logic |
+| `skills/presentation-plan-to-deck/references/html-slide-deck.md` | Optional mechanics for a single-file HTML deck |
+| `skills/deck-review-update/SKILL.md` | Review an existing deck for story, pacing, and concrete improvements |
+| `scripts/install-all.sh` | Install all skills for one platform in one command |
 
-Install by copying or symlinking the **`presentation-planning`** folder wherever your tooling expects a skill directory.
+This repo now uses a shared `skills/` directory, similar to the Superpowers layout, so you can install the whole collection at once.
 
 ```bash
 REPO="/absolute/path/to/this-repo"
-SKILL="$REPO/presentation-planning"
 ```
+
+Recommended workflow:
+
+1. `brief-to-presentation-plan`
+2. `presentation-plan-to-deck`
+3. `deck-review-update`
+
+---
+
+## Quick install
+
+Run one command from the repo root:
+
+```bash
+./scripts/install-all.sh cursor
+./scripts/install-all.sh claude
+./scripts/install-all.sh codex
+```
+
+Defaults:
+
+- `cursor` -> `~/.cursor/skills`
+- `claude` -> `~/.claude/skills`
+- `codex` -> `~/.agents/skills/presentation-skills`
+
+You can override the destination by passing a second argument.
 
 ---
 
@@ -24,11 +52,20 @@ SKILL="$REPO/presentation-planning"
 
 Some products discover skills at `<workspace>/.cursor/skills/<skill-id>/SKILL.md` or under a user-level `~/.cursor/skills/` directory.
 
+One-command install:
+
+```bash
+./scripts/install-all.sh cursor
+```
+
+Manual equivalent:
+
 ```bash
 DEST="/path/to/workspace/.cursor/skills"
 mkdir -p "$DEST"
-ln -s "$SKILL" "$DEST/presentation-planning"
-# or: cp -R "$SKILL" "$DEST/presentation-planning"
+for skill in "$REPO"/skills/*; do
+  ln -sfn "$skill" "$DEST/$(basename "$skill")"
+done
 ```
 
 Use only **user- or project-owned** `skills` directories. Do not overwrite vendor-managed skill bundles that ship with a product.
@@ -39,36 +76,69 @@ Use only **user- or project-owned** `skills` directories. Do not overwrite vendo
 
 Claude Code expects **`.claude/skills/<skill-id>/SKILL.md`** at the project root (or the equivalent user config location).
 
+One-command install:
+
+```bash
+./scripts/install-all.sh claude
+```
+
+Manual project install:
+
 ```bash
 PROJ="/path/to/your/project"
 mkdir -p "$PROJ/.claude/skills"
-ln -s "$SKILL" "$PROJ/.claude/skills/presentation-planning"
+for skill in "$REPO"/skills/*; do
+  ln -sfn "$skill" "$PROJ/.claude/skills/$(basename "$skill")"
+done
 ```
 
-User-wide (if your setup supports it):
+User-wide:
 
 ```bash
-mkdir -p ~/.claude/skills
-ln -s "$SKILL" ~/.claude/skills/presentation-planning
+./scripts/install-all.sh claude ~/.claude/skills
 ```
 
-Restart or rescan skills so **presentation-planning** is picked up.
+Restart or rescan skills so the new skills are picked up.
 
 ---
 
 ## Install: Codex and other agents (`AGENTS.md` / instructions)
 
-Reference the skill by path in project instructions.
+Codex can use the same “all skills in one collection” pattern as Superpowers.
+
+One-command install:
+
+```bash
+./scripts/install-all.sh codex
+```
+
+This creates one symlink:
+
+```text
+~/.agents/skills/presentation-skills -> <repo>/skills
+```
+
+Detailed Codex instructions: [`.codex/INSTALL.md`](.codex/INSTALL.md)
+
+If you prefer path-based project instructions instead, reference the skill by path:
 
 ```markdown
 ## Presentations
 
-When the user plans or writes a presentation, slide deck, or talk outline, read and follow:
+When the user provides a brief, notes, transcript, or document and wants a presentation plan, read and follow:
 
-`/absolute/path/to/this-repo/presentation-planning/SKILL.md`
+`/absolute/path/to/this-repo/skills/brief-to-presentation-plan/SKILL.md`
 ```
 
-Add a second path to `references/html-slide-deck.md` only when working on a single-file HTML deck in that project.
+Then, when an approved presentation plan needs to become a deck, use:
+
+`/absolute/path/to/this-repo/skills/presentation-plan-to-deck/SKILL.md`
+
+When reviewing or improving an existing deck, use:
+
+`/absolute/path/to/this-repo/skills/deck-review-update/SKILL.md`
+
+Add `skills/presentation-plan-to-deck/references/html-slide-deck.md` only when working on a single-file HTML deck.
 
 ---
 
@@ -79,7 +149,9 @@ If your environment only loads skills from `.cursor/skills/` inside the workspac
 ```bash
 cd "$REPO"
 mkdir -p .cursor/skills
-ln -sf "$PWD/presentation-planning" .cursor/skills/presentation-planning
+for skill in "$PWD"/skills/*; do
+  ln -sfn "$skill" ".cursor/skills/$(basename "$skill")"
+done
 ```
 
 Keep that symlink local unless your team wants it committed.

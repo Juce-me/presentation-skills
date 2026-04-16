@@ -1,8 +1,8 @@
 # Single-file HTML slide deck (implementation reference)
 
-Companion to **`presentation-planning`**. Use when building or editing a **one HTML file** deck (inline CSS + JS). Replace example tokens, section names, and domain rules with whatever matches **your** deck; keep the structural patterns (two reveal systems, `SECTIONS`, slide anatomy).
+Companion to **`presentation-plan-to-deck`**. Use when building or editing a **one HTML file** deck (inline CSS + JS). Replace example tokens, section names, and domain rules with whatever matches **your** deck; keep the structural patterns (two reveal systems, `SECTIONS`, slide anatomy).
 
-Authoritative detail for a given repo should live in that repo’s maintainer doc (**`CLAUDE.md`**, **`AGENTS.md`**, or similar).
+Authoritative detail for a given repo should live in that repo’s maintainer doc (`CLAUDE.md`, `AGENTS.md`, or similar).
 
 **Preview:** open your deck HTML in a browser; refresh after edits.
 
