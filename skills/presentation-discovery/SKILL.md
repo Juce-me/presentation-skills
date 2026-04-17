@@ -84,11 +84,13 @@ End with a recommendation + reasoning.
 
 | Option | Best when |
 |--------|-----------|
-| A — Reveal.js | Animation / storytelling emphasis |
-| B — Slidev | Code demos, developer audience |
-| C — Custom HTML/CSS/JS | Unconventional interactions |
-| D — PowerPoint / Keynote | Corporate, non-technical audience |
+| A — Reveal.js (CDN, single `index.html`, no build) — **default** | Most talks. Works with nothing installed |
+| B — Slidev | Code demos, developer audience, MDX workflow |
+| C — Custom HTML/CSS/JS | Unconventional interactions Reveal cannot express |
+| D — PowerPoint / Keynote | Corporate, non-technical audience, required native file |
 | E — Undecided | Decide during deck build |
+
+Default recommendation: **A**. Pick another option only if a concrete requirement rules it out. See `presentation-plan-to-deck` → `references/simple-reveal-deck.md` for the default stack.
 
 ---
 

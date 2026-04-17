@@ -11,7 +11,9 @@ description: >-
 
 Use this skill after the presentation plan is settled. The job here is to turn the plan into a deck with accurate structure, layout, and reveal logic.
 
-If the project uses a single-file HTML deck, also read [references/html-slide-deck.md](references/html-slide-deck.md) and the project maintainer documentation.
+For new decks, **default to the simple stack** described in [references/simple-reveal-deck.md](references/simple-reveal-deck.md) — Reveal.js 5.x from CDN, single `index.html`, no build tool, no installed dependencies.
+
+If the project already has a bespoke single-file HTML deck with custom reveal systems, also read [references/html-slide-deck.md](references/html-slide-deck.md) and the project maintainer documentation. Do not retrofit legacy patterns onto a new deck.
 
 ---
 
@@ -117,12 +119,19 @@ Example output:
 - The opening must establish context quickly.
 - The ending must land on a takeaway, action, or decision, not just stop.
 - **Numeric results are never prose.** Any slide carrying a result, improvement, change, target, or comparison (latency, adoption %, cost delta, error rate, etc.) gets a visual treatment per **`stats-visualization`** — hero number, before/after, bars, gauge, delta callout, or annotated change chart — with a reason label explaining *why* the number moved. Inline phrasing like "340 ms vs 65 ms" is a bug, not a slide.
+- **Keep the stack simple.** Default to Reveal.js 5.x from CDN, single `index.html`, no build tool, no installed dependencies (see [references/simple-reveal-deck.md](references/simple-reveal-deck.md)). Do not introduce a bundler, package manager, CSS framework, or bespoke navigation system unless a concrete requirement demands it and the default has been tried first. Every added dependency must earn its complexity.
 
 ---
 
 ## Single-file HTML decks
 
-For one-file HTML slide decks with inline CSS and JS:
+For new decks, follow the simple default stack:
+
+- read [references/simple-reveal-deck.md](references/simple-reveal-deck.md) — Reveal.js 5.x from CDN, one `index.html`, no build, no install
+- use Reveal's built-in fragments / transitions before writing custom JS
+- keep CSS tokens in `:root`; no stray hex colors
+
+For existing decks with a bespoke single-file HTML framework:
 
 - read [references/html-slide-deck.md](references/html-slide-deck.md)
 - follow the owning repo's maintainer doc for tokens, components, and scripts
