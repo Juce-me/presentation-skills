@@ -8,6 +8,7 @@ Portable skill set for creating presentations from input, turning plans into dec
 
 | Path | Purpose |
 |------|---------|
+| `skills/presentation-discovery/SKILL.md` | Guided discovery when there is no brief yet — produces a brief from structured Q&A |
 | `skills/brief-to-presentation-plan/SKILL.md` | Turn a brief, notes, transcript, or doc into a presentation plan |
 | `skills/presentation-plan-to-deck/SKILL.md` | Turn an approved plan into an actual deck with layout and reveal logic |
 | `skills/presentation-plan-to-deck/references/html-slide-deck.md` | Optional mechanics for a single-file HTML deck |
@@ -22,9 +23,10 @@ REPO="/absolute/path/to/this-repo"
 
 Recommended workflow:
 
-1. `brief-to-presentation-plan`
-2. `presentation-plan-to-deck`
-3. `deck-review-update`
+1. `presentation-discovery` (optional — when there is no brief yet)
+2. `brief-to-presentation-plan`
+3. `presentation-plan-to-deck`
+4. `deck-review-update`
 
 ---
 
