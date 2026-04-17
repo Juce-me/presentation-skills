@@ -2,9 +2,10 @@
 name: brief-to-presentation-plan
 description: >-
   Converts a brief, notes, transcript, document, or mixed source material into
-  a presentation plan. Use when the input is messy or incomplete and you need
-  to extract audience, goal, theme, narrative arc, section flow, and slide
-  intent before building a deck.
+  a presentation plan and saves it to the project's `docs/specs/` folder. Use
+  when the input is messy or incomplete and you need to extract audience,
+  goal, theme, narrative arc, section flow, and slide intent before building
+  a deck.
 ---
 
 # Brief to presentation plan
@@ -71,6 +72,35 @@ If the input is fragmented, normalize it first into a single working summary.
    - slide-by-slide intent
    - open questions / evidence gaps
 
+8. **Save the plan to the project**
+   Write the plan to `<project-root>/docs/specs/YYYY-MM-DD-<slug>-design.md` (see [File location](#file-location) below). Create `docs/specs/` if it does not exist. Tell the user the exact path after saving.
+
+---
+
+## File location
+
+Every plan must be saved to the target project's specs folder using a dated, descriptive filename:
+
+```
+<project-root>/docs/specs/YYYY-MM-DD-<kebab-slug>-design.md
+```
+
+Example:
+
+```
+/Users/a.feygin/Documents/proper-presentation-deck/docs/specs/2026-04-17-presentation-skills-lightning-talk-design.md
+```
+
+Rules:
+
+- `YYYY-MM-DD` is today's date in ISO format.
+- `<kebab-slug>` is a short lowercase, hyphen-separated slug tied to the talk topic.
+- Filename always ends in `-design.md`.
+- Create `docs/specs/` if it does not exist — do not fall back to another path.
+- Never save the plan at the project root, in `plans/`, in `docs/` directly, or next to deck files.
+- One plan per file. Do not append multiple plans into one document.
+- If the target project root is ambiguous, confirm with the user before writing.
+
 ---
 
 ## Output template
@@ -129,4 +159,4 @@ Use this structure unless the user asks for another format:
 
 ## Handoff
 
-Once the plan is approved, hand off to **`presentation-plan-to-deck`** to build the actual deck.
+Once the plan file is saved under `docs/specs/` and approved, hand off to **`presentation-plan-to-deck`** using that saved file as the source of truth for the deck build.
