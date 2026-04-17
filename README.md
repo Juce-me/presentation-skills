@@ -14,6 +14,7 @@ Portable skill set for creating presentations from input, turning plans into dec
 | `skills/presentation-plan-to-deck/references/html-slide-deck.md` | Optional mechanics for a single-file HTML deck |
 | `skills/deck-review-update/SKILL.md` | Review an existing deck for story, pacing, and concrete improvements |
 | `skills/slide-gif-picker/SKILL.md` | Add themed GIFs to selected slides via Giphy (theme + 3 choices per slide) |
+| `skills/stats-visualization/SKILL.md` | Turn numeric results into bold visuals — hero numbers, before/after, bars, gauges, annotated change |
 | `scripts/install-all.sh` | Install all skills for one platform in one command |
 
 This repo now uses a shared `skills/` directory, similar to the Superpowers layout, so you can install the whole collection at once.

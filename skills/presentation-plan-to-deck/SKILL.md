@@ -49,6 +49,7 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - hierarchy
    - phased sequence
    - summary / takeaway
+   - **numeric result / change** → hand off slide design to **`stats-visualization`**
 
 4. **Specify reveal order**
    Reveals and animation should match the spoken story:
@@ -115,6 +116,7 @@ Example output:
 - If a slide feels crowded, split it instead of shrinking everything.
 - The opening must establish context quickly.
 - The ending must land on a takeaway, action, or decision, not just stop.
+- **Numeric results are never prose.** Any slide carrying a result, improvement, change, target, or comparison (latency, adoption %, cost delta, error rate, etc.) gets a visual treatment per **`stats-visualization`** — hero number, before/after, bars, gauge, delta callout, or annotated change chart — with a reason label explaining *why* the number moved. Inline phrasing like "340 ms vs 65 ms" is a bug, not a slide.
 
 ---
 

@@ -29,6 +29,7 @@ Check for:
 - unsupported claims
 - weak landing or no real ending
 - visual/reveal choices that spoil the story order
+- **numeric results presented as prose instead of visuals** (see `stats-visualization`)
 
 ---
 
@@ -95,6 +96,16 @@ If there are no major issues, say that explicitly and call out any residual risk
 - If two slides do the same job, merge or remove one.
 - If one slide does too many jobs, split it.
 - Keep audience needs above source-material completeness.
+
+---
+
+## Numeric slide check
+
+During review, scan every slide for numbers that represent a **result, improvement, change, target, or benchmark** (latency, adoption, cost, error rate, revenue delta, etc.). Flag any slide where those numbers appear as inline prose, bullet text, or a raw table.
+
+**Default action: redesign the slide per `stats-visualization`** — hero number, before/after, bars, gauge, delta callout, or annotated change chart. Every such slide must also carry a short **reason label** explaining *why* the number moved (e.g., "added cache", "new algorithm", "A/B test winner"). A delta without a reason is trivia.
+
+Do not treat this as a polish issue — it is structural. A deck that buries its best numbers is a deck that loses its audience.
 
 ---
 
