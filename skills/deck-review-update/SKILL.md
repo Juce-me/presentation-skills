@@ -30,6 +30,10 @@ Check for:
 - weak landing or no real ending
 - visual/reveal choices that spoil the story order
 - **numeric results presented as prose instead of visuals** (see `stats-visualization`)
+- proof slides where the evidence is too small to carry the claim in a live room
+- payoff slides where the insight is visually weaker than the container around it
+- audience-facing scaffolding such as placeholder URLs, fake QR codes, TODO text, or backstage notes
+- accidental machine-looking composition that should either be cleaned up or clearly marked as intentional parody/contrast
 
 ---
 
@@ -61,6 +65,11 @@ Check for:
 5. **Apply updates when requested**
    Update the deck or its slide spec so the story becomes cleaner and more persuasive.
 
+6. **Run human stagecraft QA before declaring the deck done**
+   This is a blocking completion gate.
+   - if you are reviewing only, report every failed checklist item as a finding and do not call the deck ready
+   - if you are updating the deck, revise and re-check until every checklist answer is `no`
+
 ---
 
 ## Feedback format
@@ -77,6 +86,14 @@ When reviewing, use this structure:
 2. [Next issue]
    - Why it matters
    - What to change
+
+## Human stagecraft QA
+
+- Text hugging the screen edge: [yes/no + slide refs]
+- Object too small for the back row: [yes/no + slide refs]
+- Empty container chrome larger than the insight: [yes/no + slide refs]
+- Placeholder or dev-only text still visible: [yes/no + slide refs]
+- Auto-fitted instead of human-composed: [yes/no + slide refs]
 
 ## Suggested update plan
 
@@ -96,6 +113,8 @@ If there are no major issues, say that explicitly and call out any residual risk
 - If two slides do the same job, merge or remove one.
 - If one slide does too many jobs, split it.
 - Keep audience needs above source-material completeness.
+- Stagecraft QA failures are blocking. A deck with any `yes` answer in the final checklist is not done.
+- Preserve intentional ugly, parody, or contrast when it is clearly part of the joke or rhetorical move. Remove only the accidental machine-looking composition.
 
 ---
 
@@ -121,6 +140,31 @@ During review, flag any slide that is doing too much. Signs of a complicated sli
 **Default action: split into separate slides.**
 
 Each split slide gets its own job, its own title, and its own reveal logic. Prefer two clean slides over one complex one. A slide that needs a tour guide is a slide that needs to be broken apart.
+
+---
+
+## Human stagecraft QA
+
+Before calling a deck complete, run a mandatory **human stagecraft QA** pass. Judge the slides as stage objects for a live audience, not as browser screenshots.
+
+Hard rules:
+
+- **No auto-fit look.** Headlines, wordmarks, and hero objects must keep visible breathing room from the slide edges. If a long token or product name starts hugging the edge, split it, resize it, or constrain it to a column.
+- **No tiny idea objects.** Ban micro-demos, tiny dots, thin labels, miniature navigation markers, and other subscale elements unless the whole slide is about that object and it is enlarged enough to command attention.
+- **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
+- **Payoff hierarchy must be obvious.** The main lesson, delta, or result cannot sit as a muted footer under a giant container. If it is the point, it must be visually dominant.
+- **No audience-facing scaffolding.** Never leave placeholder URLs, fake QR codes, TODO text, implementation reminders, or backstage instructions on visible slides.
+- **Distinguish intentional ugly from accidental ugly.** If a deck uses parody or contrast on purpose, preserve that; do not "fix" the joke. But do not let accidental machine-looking composition leak into the polished sections.
+
+Final review checklist:
+
+- any text hugging the screen edge?
+- any object too small to notice from the back row?
+- any slide where empty container chrome is larger than the insight?
+- any placeholder or dev-only text still visible?
+- any slide that feels auto-fitted instead of composed by a human?
+
+If any answer is **yes**, the review is not complete. Revise the slide, then run the pass again. Only call the deck done when every answer is **no**.
 
 ---
 

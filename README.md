@@ -1,6 +1,6 @@
 # Presentation skills
 
-Portable skill set for creating presentations from input, turning plans into decks, and reviewing decks for story quality.
+Portable skill set for creating presentations from input, turning plans into decks, and reviewing decks for story quality plus live-room stagecraft.
 
 ---
 
@@ -10,10 +10,10 @@ Portable skill set for creating presentations from input, turning plans into dec
 |------|---------|
 | `skills/presentation-discovery/SKILL.md` | Guided discovery when there is no brief yet — produces a brief from structured Q&A |
 | `skills/brief-to-presentation-plan/SKILL.md` | Turn a brief, notes, transcript, or doc into a presentation plan |
-| `skills/presentation-plan-to-deck/SKILL.md` | Turn an approved plan into an actual deck with layout and reveal logic |
+| `skills/presentation-plan-to-deck/SKILL.md` | Turn an approved plan into an actual deck with layout, reveal logic, and a mandatory stagecraft QA pass before completion |
 | `skills/presentation-plan-to-deck/references/simple-reveal-deck.md` | Default stack: Reveal.js 5.x from CDN, single `index.html`, no build, no install |
 | `skills/presentation-plan-to-deck/references/html-slide-deck.md` | Optional mechanics for a legacy bespoke single-file HTML deck |
-| `skills/deck-review-update/SKILL.md` | Review an existing deck for story, pacing, and concrete improvements |
+| `skills/deck-review-update/SKILL.md` | Review an existing deck for story, pacing, concrete improvements, and final human stagecraft QA |
 | `skills/slide-gif-picker/SKILL.md` | Add themed GIFs to selected slides via Giphy (theme + 3 choices per slide) |
 | `skills/stats-visualization/SKILL.md` | Turn numeric results into bold visuals — hero numbers, before/after, bars, gauges, annotated change |
 | `scripts/install-all.sh` | Install all skills for one platform in one command |
@@ -29,7 +29,7 @@ Recommended workflow:
 1. `presentation-discovery` (optional — when there is no brief yet)
 2. `brief-to-presentation-plan`
 3. `presentation-plan-to-deck`
-4. `deck-review-update`
+4. `deck-review-update` (mandatory final human stagecraft QA before a deck is considered done)
 
 ---
 
