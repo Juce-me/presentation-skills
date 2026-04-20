@@ -58,6 +58,10 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - premise before punchline
    - framework before detail
    - tension before resolution
+   - each new claim, takeaway, or analysis point must reveal its matching visual evidence on the same step
+   - markers, highlights, labels, callouts, and comparison cues should appear when the audience needs them, not a beat later
+   - lower panels, captions, and bullets must not get ahead of what the audience can already see on the main visual
+   - reserve space for late-entering elements so they stay readable and do not collide unless overlap is a deliberate visual move
 
 5. **Design for presentation readability**
    Prefer large readable text, strong contrast, clean visual hierarchy, and room-scale composition. Avoid website-density slides.
@@ -90,6 +94,7 @@ Use this format when building or handing off the deck:
   - [point]
   - [point]
 - Layout: [diagram / 2-column / sequence / card grid / hero]
+- Evidence sync: [what visual proof appears with each reveal / step]
 - Reveal / animation order:
   1. [first element]
   2. [second element]
@@ -125,6 +130,8 @@ Example output:
 - The opening must establish context quickly.
 - The ending must land on a takeaway, action, or decision, not just stop.
 - **Numeric results are never prose.** Any slide carrying a result, improvement, change, target, or comparison (latency, adoption %, cost delta, error rate, etc.) gets a visual treatment per **`stats-visualization`** — hero number, before/after, bars, gauge, delta callout, or annotated change chart — with a reason label explaining *why* the number moved. Inline phrasing like "340 ms vs 65 ms" is a bug, not a slide.
+- **Reveal sync is mandatory.** For any fragment, reveal, or animation sequence, narrative and evidence land together. Do not reveal a claim, takeaway, caption, or bullet before the chart marker, highlight, labeled region, callout, or comparison cue that proves it.
+- **Every reveal state must remain readable.** New labels, callouts, captions, and badges cannot collide, overlap into ambiguity, or fight for the same space unless that collision is a clearly intentional artistic move.
 - **Keep the stack simple.** Default to Reveal.js 5.x from CDN, single `index.html`, no build tool, no installed dependencies (see [references/simple-reveal-deck.md](references/simple-reveal-deck.md)). Do not introduce a bundler, package manager, CSS framework, or bespoke navigation system unless a concrete requirement demands it and the default has been tried first. Every added dependency must earn its complexity.
 
 ---
@@ -138,8 +145,10 @@ Hard rules:
 - **No auto-fit look.** Headlines, wordmarks, and hero objects must keep visible breathing room from the slide edges. If a long token or product name starts hugging the edge, split it, resize it, or constrain it to a column.
 - **No tiny idea objects.** Ban micro-demos, tiny dots, thin labels, miniature navigation markers, and other subscale elements unless the whole slide is about that object and it is enlarged enough to command attention.
 - **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
+- **Reveal states must sync story to proof.** If a fragment introduces a claim, takeaway, or analysis point, the matching marker, highlight, label, callout, or comparison cue must appear on that same step. Lower captions and bullets cannot outrun the main visual.
 - **Payoff hierarchy must be obvious.** The main lesson, delta, or result cannot sit as a muted footer under a giant container. If it is the point, it must be visually dominant.
 - **No audience-facing scaffolding.** Never leave placeholder URLs, fake QR codes, TODO text, implementation reminders, or backstage instructions on visible slides.
+- **No accidental reveal collisions.** As elements enter across steps, they must remain readable, keep breathing room, and avoid unintended overlap. If the layout only works before the final fragment appears, redesign or split the slide.
 - **Distinguish intentional ugly from accidental ugly.** If a deck uses parody or contrast on purpose, preserve that; do not "fix" the joke. But do not let accidental machine-looking composition leak into the polished sections.
 
 Final review checklist:
@@ -147,6 +156,8 @@ Final review checklist:
 - any text hugging the screen edge?
 - any object too small to notice from the back row?
 - any slide where empty container chrome is larger than the insight?
+- any claim, caption, or bullet visible before its matching evidence appears?
+- any reveal step where late-entering elements collide or become hard to read?
 - any placeholder or dev-only text still visible?
 - any slide that feels auto-fitted instead of composed by a human?
 

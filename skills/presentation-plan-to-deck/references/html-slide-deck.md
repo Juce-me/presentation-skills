@@ -46,6 +46,10 @@ One-off `rgba(..., .08)` tints are acceptable. Avoid stray hex elsewhere.
 
 Connectors after a step: `.step.visible + .connector-class { opacity: 1; }` — list connector classes in your maintainer doc.
 
+For either system, keep narrative and evidence synchronized. If a `.step` or reveal state introduces a claim, takeaway, or analysis point, the matching marker, highlight, label, callout, or comparison cue must become visible on that same step. Do not let a lower caption, bullet block, or side panel get ahead of the main visual.
+
+Design each slide for its densest visible state, not just the opening frame. Late-entering labels, badges, and callouts need reserved space so they remain readable and do not collide unless overlap is a deliberate visual treatment.
+
 ---
 
 ## Slide anatomy
@@ -122,6 +126,9 @@ Renumber **highest to lowest**: IDs, comments, `SECTIONS`, step-config, promotio
 - [ ] CSS variables — no stray hex
 - [ ] `.sdesc` non-empty on every slide touched
 - [ ] New `.step` items in step-config; connectors use `.step.visible +`
+- [ ] Each reveal step advances claim and matching proof together
+- [ ] Lower captions / bullets never get ahead of the main visual
+- [ ] Final visible state stays readable; no accidental collisions
 - [ ] Card icons ≥3rem, titles ≥1.5rem
 - [ ] Two-roadmap distinction where applicable
 - [ ] Slide counter matches count; `SECTIONS` complete and disjoint

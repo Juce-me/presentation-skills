@@ -29,8 +29,10 @@ Check for:
 - unsupported claims
 - weak landing or no real ending
 - visual/reveal choices that spoil the story order
+- claim, takeaway, or analysis text that appears before the audience can see the matching proof on the main visual
 - **numeric results presented as prose instead of visuals** (see `stats-visualization`)
 - proof slides where the evidence is too small to carry the claim in a live room
+- reveal steps where new labels, callouts, captions, or badges collide and become hard to read
 - payoff slides where the insight is visually weaker than the container around it
 - audience-facing scaffolding such as placeholder URLs, fake QR codes, TODO text, or backstage notes
 - accidental machine-looking composition that should either be cleaned up or clearly marked as intentional parody/contrast
@@ -92,6 +94,8 @@ When reviewing, use this structure:
 - Text hugging the screen edge: [yes/no + slide refs]
 - Object too small for the back row: [yes/no + slide refs]
 - Empty container chrome larger than the insight: [yes/no + slide refs]
+- Claim appears before matching evidence: [yes/no + slide refs]
+- Reveal collisions or unreadable overlap: [yes/no + slide refs]
 - Placeholder or dev-only text still visible: [yes/no + slide refs]
 - Auto-fitted instead of human-composed: [yes/no + slide refs]
 
@@ -114,6 +118,7 @@ If there are no major issues, say that explicitly and call out any residual risk
 - If one slide does too many jobs, split it.
 - Keep audience needs above source-material completeness.
 - Stagecraft QA failures are blocking. A deck with any `yes` answer in the final checklist is not done.
+- For any fragment, reveal, or animation sequence, require narrative and evidence to advance together on the same step.
 - Preserve intentional ugly, parody, or contrast when it is clearly part of the joke or rhetorical move. Remove only the accidental machine-looking composition.
 
 ---
@@ -152,8 +157,10 @@ Hard rules:
 - **No auto-fit look.** Headlines, wordmarks, and hero objects must keep visible breathing room from the slide edges. If a long token or product name starts hugging the edge, split it, resize it, or constrain it to a column.
 - **No tiny idea objects.** Ban micro-demos, tiny dots, thin labels, miniature navigation markers, and other subscale elements unless the whole slide is about that object and it is enlarged enough to command attention.
 - **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
+- **Reveal states must sync story to proof.** If a step introduces a claim, takeaway, or analysis point, the matching marker, highlight, label, callout, or comparison cue must appear on that same step. Lower captions and bullets cannot get ahead of the main visual.
 - **Payoff hierarchy must be obvious.** The main lesson, delta, or result cannot sit as a muted footer under a giant container. If it is the point, it must be visually dominant.
 - **No audience-facing scaffolding.** Never leave placeholder URLs, fake QR codes, TODO text, implementation reminders, or backstage instructions on visible slides.
+- **No accidental reveal collisions.** Late-entering elements must remain readable and keep breathing room. If the final reveal creates overlap or crowding, redesign or split the slide.
 - **Distinguish intentional ugly from accidental ugly.** If a deck uses parody or contrast on purpose, preserve that; do not "fix" the joke. But do not let accidental machine-looking composition leak into the polished sections.
 
 Final review checklist:
@@ -161,6 +168,8 @@ Final review checklist:
 - any text hugging the screen edge?
 - any object too small to notice from the back row?
 - any slide where empty container chrome is larger than the insight?
+- any claim, caption, or bullet visible before its matching evidence appears?
+- any reveal step where late-entering elements collide or become hard to read?
 - any placeholder or dev-only text still visible?
 - any slide that feels auto-fitted instead of composed by a human?
 

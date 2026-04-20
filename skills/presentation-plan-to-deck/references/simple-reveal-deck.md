@@ -105,6 +105,9 @@ That is a working deck. No build. No install. Nothing missing.
 - **Tokens as CSS vars** in `:root`. No stray hex colors scattered through the file.
 - **Slide anatomy**: one `<section>` per slide. Vertical stacks via nested `<section>` only when the stack is genuinely hierarchical.
 - **Reveal order** uses `.fragment` (and `.fragment.fade-up`, `.fade-in-then-out`, etc.) — match the spoken story.
+- **Sync claim and proof on the same fragment.** If a fragment introduces a takeaway, analysis point, or comparison, reveal the matching marker, highlight, label, callout, or visual cue on that same step.
+- **Do not let lower copy outrun the visual.** Captions, bullets, and footer panels cannot explain evidence the audience cannot yet see.
+- **Design for the final fragment state.** Reserve space for late-entering elements so labels and callouts stay readable and do not collide unless the overlap is an intentional graphic effect.
 
 ---
 

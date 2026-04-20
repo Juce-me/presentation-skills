@@ -27,6 +27,8 @@ Two things must be visible, always:
 1. **The delta** — how much it changed, ideally as both absolute and relative (`−275 ms`, `−81%`).
 2. **The reason** — one short label saying *why* it moved (e.g., "added cache", "parallelized calls", "switched to native query"). A visualization without a reason is trivia.
 
+If the slide reveals in steps, the claim and the proof arrive together. A delta badge, reason label, or takeaway line cannot appear before the bar, marker, highlight, or comparison cue that makes it legible.
+
 ---
 
 ## Anti-patterns — reject these on sight
@@ -159,7 +161,10 @@ Numbers carry more punch when revealed in the right order:
 
 For a hero number, reverse it: delta first (huge, center), then reason (smaller, below).
 
+For any stepwise build, pair each narrative move with its matching evidence on the same step. If the script says "this is where the curve breaks," that step must reveal the vertical marker, highlighted segment, or comparison cue immediately. Do not let a caption, bullet, or lower panel get ahead of the chart.
+
 Use ~400–700 ms ease-out transitions. Bars should grow, not snap. Numbers can count up with `Intl.NumberFormat` over ~800 ms for extra impact on high-value slides — but use sparingly, once per deck at most.
+Reserve space for late-entering markers, badges, and labels. If the final state crowds the chart or creates accidental overlap, simplify the layout or split the slide.
 
 ---
 
@@ -182,10 +187,12 @@ If none fits cleanly, the slide is probably trying to make more than one point �
 
 - Numbers that represent results are **never** inline prose. If you catch `X ms vs Y ms` in a sentence, it is a bug.
 - Every visualization names its reason. No orphan percentages.
+- Every revealed claim lands with visible proof on the same step. No numeric caption or takeaway before the audience can see the marker, bar, highlight, or comparison that supports it.
 - One hero metric per slide. Secondary metrics get lower visual weight or a separate slide.
 - Units are always visible (`ms`, `%`, `requests/s`, `$`, `users`). No bare "340".
 - Scale is honest. Truncated Y-axes are banned unless the truncation is annotated.
 - Direction-of-good is consistent within the deck (e.g., up = better in every chart, or down = better — pick one per metric and stick to it).
+- Late-entering labels, callouts, and badges stay readable and non-colliding unless overlap is a deliberate visual effect.
 
 ---
 
