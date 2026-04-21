@@ -24,6 +24,10 @@ This skill supports more than one presentation shape. One important supported sc
 
 When this scenario applies, the plan must lock the story facts, visual direction, motion strategy, and delivery constraints early. Do not leave those decisions to improvisation during deck build.
 
+Worked example:
+
+- [`docs/examples/proper-presentation-deck.md`](../../docs/examples/proper-presentation-deck.md) — presentation made with `presentation-skills`
+
 ---
 
 ## Inputs

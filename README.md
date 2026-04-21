@@ -50,6 +50,10 @@ For that scenario, the skills now expect the plan and deck build to define:
 - the browser support contract for HTML decks, with **latest Chrome and latest Firefox** as the minimum QA bar and Safari added when relevant
 - explicit stagecraft and runtime verification, not just "looks good"
 
+Worked example:
+
+- [`docs/examples/proper-presentation-deck.md`](docs/examples/proper-presentation-deck.md) — example of a presentation made with `presentation-skills`, based on `/Users/a.feygin/Documents/proper-presentation-deck`
+
 ## Regression hardening
 
 When a generated deck technically renders but still feels visually broken, use:

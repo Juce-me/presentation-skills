@@ -42,6 +42,10 @@ For this scenario:
 - specify how each reveal step changes both the story and the visible proof
 - define whether any act-to-act style contrast is intentional, such as a bland "before" act and a polished "after" act
 
+Worked example:
+
+- [`docs/examples/proper-presentation-deck.md`](../../docs/examples/proper-presentation-deck.md) — presentation made with `presentation-skills`
+
 ---
 
 ## Inputs

@@ -27,6 +27,10 @@ This skill explicitly covers **story-driven engineering decks** that retell one 
 
 When reviewing this kind of deck, treat story continuity, proof timing, runtime behavior, and build constraints as first-class concerns, not implementation details.
 
+Worked example:
+
+- [`docs/examples/proper-presentation-deck.md`](../../docs/examples/proper-presentation-deck.md) — presentation made with `presentation-skills`
+
 ---
 
 ## Review focus
