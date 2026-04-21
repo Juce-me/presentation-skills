@@ -15,6 +15,8 @@ For new decks, **default to the simple stack** described in [references/simple-r
 
 If the project already has a bespoke single-file HTML deck with custom reveal systems, also read [references/html-slide-deck.md](references/html-slide-deck.md) and the project maintainer documentation. Do not retrofit legacy patterns onto a new deck.
 
+Also read [references/ux-design-regressions.md](references/ux-design-regressions.md) before building or revising any deck with custom visuals, charts, or reveal-heavy storytelling. It names the failure modes that make a deck feel broken even when the HTML technically renders.
+
 ---
 
 ## Inputs
@@ -53,7 +55,16 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - summary / takeaway
    - **numeric result / change** → hand off slide design to **`stats-visualization`**
 
-4. **Specify reveal order**
+4. **Write a composition contract**
+   Before implementing the slide, define:
+   - dominant object
+   - supporting object
+   - intended canvas split (for example 60/40, full-bleed evidence, or centered hero)
+   - final visible state after all reveals
+   - where late-entering labels / callouts will live
+   - any browser-sensitive custom animation behavior that must replay on revisit
+
+5. **Specify reveal order**
    Reveals and animation should match the spoken story:
    - premise before punchline
    - framework before detail
@@ -63,17 +74,17 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - lower panels, captions, and bullets must not get ahead of what the audience can already see on the main visual
    - reserve space for late-entering elements so they stay readable and do not collide unless overlap is a deliberate visual move
 
-5. **Design for presentation readability**
+6. **Design for presentation readability**
    Prefer large readable text, strong contrast, clean visual hierarchy, and room-scale composition. Avoid website-density slides.
 
-6. **Produce implementation-ready deck content**
+7. **Produce implementation-ready deck content**
    The output can be:
    - slide-by-slide deck spec
    - draft slide copy
    - HTML deck changes
    - instructions for another deck tool
 
-7. **Run human stagecraft QA before completion**
+8. **Run human stagecraft QA before completion**
    This is a blocking pass, not optional polish.
    - inspect every slide as something meant for a live room, not just a browser tab
    - apply the hard rules below
@@ -133,6 +144,11 @@ Example output:
 - **Reveal sync is mandatory.** For any fragment, reveal, or animation sequence, narrative and evidence land together. Do not reveal a claim, takeaway, caption, or bullet before the chart marker, highlight, labeled region, callout, or comparison cue that proves it.
 - **Every reveal state must remain readable.** New labels, callouts, captions, and badges cannot collide, overlap into ambiguity, or fight for the same space unless that collision is a clearly intentional artistic move.
 - **Keep the stack simple.** Default to Reveal.js 5.x from CDN, single `index.html`, no build tool, no installed dependencies (see [references/simple-reveal-deck.md](references/simple-reveal-deck.md)). Do not introduce a bundler, package manager, CSS framework, or bespoke navigation system unless a concrete requirement demands it and the default has been tried first. Every added dependency must earn its complexity.
+- **Treat "aspect ratio" complaints as composition bugs first.** If the deck is already using a 16:9 canvas, but the slide feels cropped, tiny, footer-heavy, or strangely empty, redesign the slide composition instead of blaming global deck size.
+- **Related slides must share one incident model.** If the deck contains hook, diagnosis, fix, and result slides about the same event, the thresholds, timeline, and before/after numbers must line up exactly.
+- **Custom motion must replay.** Any chart, SVG, or scripted visual that animates on slide entry must also replay when revisiting the slide, not only on first render.
+- **Firefox is mandatory QA for HTML decks.** A deck is not complete when it only looks right in Chrome.
+- **Decorative recap grids are banned.** Storyboard / journey / recap slides must contain meaningful story beats, not empty or interchangeable tiles.
 
 ---
 
@@ -179,8 +195,24 @@ For existing decks with a bespoke single-file HTML framework:
 - follow the owning repo's maintainer doc for tokens, components, and scripts
 - keep reveal logic aligned with the story order
 
+## Browser QA for HTML decks
+
+For any HTML deck, verify at least:
+
+- latest Chrome
+- latest Firefox
+
+Check:
+
+- slide proportions feel intentionally composed in both browsers
+- custom charts / SVGs animate on first entry and on revisit
+- fragment timing still syncs story and proof
+- labels, callouts, and code blocks wrap the same way or remain equally readable
+
+If Firefox breaks the slide, the deck is not done.
+
 ---
 
 ## Handoff
 
-After a draft exists, use **`deck-review-update`** for the final review pass. A deck is not complete until it passes story review *and* human stagecraft QA with every checklist answer set to **no**.
+After a draft exists, use **`deck-review-update`** for the final review pass. When the deck technically works but still feels wrong, use [references/deck-hardening-prompt.md](references/deck-hardening-prompt.md) to frame the regression pass. A deck is not complete until it passes story review *and* human stagecraft QA with every checklist answer set to **no**.

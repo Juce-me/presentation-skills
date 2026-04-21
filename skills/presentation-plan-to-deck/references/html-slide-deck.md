@@ -132,5 +132,10 @@ Renumber **highest to lowest**: IDs, comments, `SECTIONS`, step-config, promotio
 - [ ] Card icons ≥3rem, titles ≥1.5rem
 - [ ] Two-roadmap distinction where applicable
 - [ ] Slide counter matches count; `SECTIONS` complete and disjoint
+- [ ] Any custom SVG / JS animation replays on slide revisit, not only first load
+- [ ] Critical slides verified in Chrome and Firefox
+- [ ] "Aspect ratio" complaints were tested as composition / under-filled-canvas failures first
+- [ ] Annotations that explain chart moments use clear markers or leader stems
+- [ ] Recap / journey slides contain meaningful beats, not decorative filler boxes
 
 For SVG, cascade/Venn, and full CSS, use your deck repository’s maintainer documentation.

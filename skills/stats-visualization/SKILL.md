@@ -41,6 +41,9 @@ If the slide reveals in steps, the claim and the proof arrive together. A delta 
 | Delta without reason | "−81%" alone | Add the cause: "−81% after adding cache" |
 | Tiny chart with dense axis labels | 200px chart with 6 gridlines | Big number + one supporting mini-bar |
 | Multiple KPIs competing on one slide | 4 metrics, same weight | One hero number per slide; secondary metrics as thin strip |
+| Footer-hugging line chart | Hero stat at top, tiny line chart near bottom edge | Make the chart the dominant proof object or split the slide |
+| Unanchored correlation label | "deployed here" text floating near a curve | Add a vertical marker / leader stem anchored to the exact event point |
+| Result slide with weak proof | Big result number plus a nearly flat visual | Increase chart height / range until the audience can feel the change |
 
 ---
 
@@ -148,6 +151,13 @@ A line or bar chart with a **labeled vertical marker** at the moment the change 
 
 The marker + label is the thing that makes the chart a story instead of a scatter plot.
 
+Hard rules for this pattern:
+
+- the chart should occupy enough vertical space that the change is visible from the back row
+- the event marker must be visually anchored to the exact point or x-position it explains
+- if the slide also contains a hero number, the chart still needs enough size to read as proof rather than decoration
+- revisit behavior matters: the marker and chart motion must replay when the audience returns to the slide
+
 ---
 
 ## Reveal order
@@ -193,6 +203,8 @@ If none fits cleanly, the slide is probably trying to make more than one point �
 - Scale is honest. Truncated Y-axes are banned unless the truncation is annotated.
 - Direction-of-good is consistent within the deck (e.g., up = better in every chart, or down = better — pick one per metric and stick to it).
 - Late-entering labels, callouts, and badges stay readable and non-colliding unless overlap is a deliberate visual effect.
+- For incident / diagnosis / result sequences, the same metric and event timeline must be preserved across slides.
+- Annotated charts are not complete until the marker, label, and motion still work in Firefox.
 
 ---
 

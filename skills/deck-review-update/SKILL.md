@@ -36,6 +36,12 @@ Check for:
 - payoff slides where the insight is visually weaker than the container around it
 - audience-facing scaffolding such as placeholder URLs, fake QR codes, TODO text, or backstage notes
 - accidental machine-looking composition that should either be cleaned up or clearly marked as intentional parody/contrast
+- slides that feel "wrong aspect ratio" because the canvas is underused or badly balanced
+- chart or code slides where the evidence sits too low on the slide or occupies too little of the canvas
+- related slides whose numbers or timeline do not describe the same incident
+- custom motion that works once but does not replay on revisit
+- motion or SVG behavior that breaks in Firefox
+- journey / recap slides made of decorative, empty, or interchangeable boxes
 
 ---
 
@@ -71,6 +77,7 @@ Check for:
    This is a blocking completion gate.
    - if you are reviewing only, report every failed checklist item as a finding and do not call the deck ready
    - if you are updating the deck, revise and re-check until every checklist answer is `no`
+   - for HTML decks, verify the critical slides in Chrome and Firefox before declaring the deck done
 
 ---
 
@@ -172,6 +179,12 @@ Final review checklist:
 - any reveal step where late-entering elements collide or become hard to read?
 - any placeholder or dev-only text still visible?
 - any slide that feels auto-fitted instead of composed by a human?
+- any slide where the complaint sounds like "aspect ratio" but the real problem is empty or badly used canvas?
+- any chart, flamegraph, or code panel hugging the footer instead of commanding the stage?
+- any related slides where the dates, thresholds, or result numbers do not line up?
+- any custom animation that fails to replay when revisiting the slide?
+- any slide that behaves differently enough in Firefox to change readability or meaning?
+- any recap / journey slide filled with decorative or empty boxes?
 
 If any answer is **yes**, the review is not complete. Revise the slide, then run the pass again. Only call the deck done when every answer is **no**.
 

@@ -31,6 +31,15 @@ Recommended workflow:
 3. `presentation-plan-to-deck`
 4. `deck-review-update` (mandatory final human stagecraft QA before a deck is considered done)
 
+## Regression hardening
+
+When a generated deck technically renders but still feels visually broken, use:
+
+- `skills/presentation-plan-to-deck/references/ux-design-regressions.md`
+- `skills/presentation-plan-to-deck/references/deck-hardening-prompt.md`
+
+These two references capture the concrete failure modes that recently slipped through: under-used canvas, weak evidence staging, unanchored annotations, non-replaying chart motion, browser drift, and decorative recap filler.
+
 ---
 
 ## Quick install

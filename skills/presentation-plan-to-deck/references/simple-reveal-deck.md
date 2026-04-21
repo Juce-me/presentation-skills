@@ -109,6 +109,41 @@ That is a working deck. No build. No install. Nothing missing.
 - **Do not let lower copy outrun the visual.** Captions, bullets, and footer panels cannot explain evidence the audience cannot yet see.
 - **Design for the final fragment state.** Reserve space for late-entering elements so labels and callouts stay readable and do not collide unless the overlap is an intentional graphic effect.
 
+When a slide uses custom JS charts, remount them on slide entry instead of assuming first render is enough:
+
+```js
+function mountChartForSlide(slide) {
+  const name = slide.dataset.chart;
+  const mount = slide.querySelector('[data-chart-mount]');
+  if (!name || !mount) return;
+  mount.innerHTML = '';
+  charts[name](mount, slide.dataset.chartVariant || 'default');
+}
+
+Reveal.on('ready', (e) => mountChartForSlide(e.currentSlide));
+Reveal.on('slidetransitionend', (e) => mountChartForSlide(e.currentSlide));
+```
+
+This is the default pattern when the deck depends on motion to explain the story.
+
+## Browser verification
+
+Do not trust one browser preview.
+
+For HTML decks, run a local static server and verify in both Chrome and Firefox:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000` in the latest Chrome and the latest Firefox.
+
+Check:
+
+- the slide still feels intentionally composed at full-screen size
+- custom SVG / chart animation replays when revisiting the slide
+- labels, callouts, and code lines stay readable in both browsers
+
 ---
 
 ## When to upgrade (and when not to)
@@ -134,6 +169,11 @@ Every upgrade earns its complexity or it does not happen.
 - Copying a previous deck's giant custom navigation system into a new project "for consistency".
 - Splitting into many small files before the deck is big enough to need it.
 - Vendoring Reveal.js locally when the CDN is fine (do this only for offline / air-gapped presentations).
+- A thin chart parked near the footer under a huge empty field.
+- A label that talks about a data point without a visible marker or leader stem.
+- A code or chart card centered inside a much larger empty panel with no compositional reason.
+- A "journey" grid made of decorative or empty tiles that do not tell the story.
+- A chart that animates only on the first visit or only in one browser.
 
 ---
 
