@@ -19,6 +19,31 @@ Also read [references/ux-design-regressions.md](references/ux-design-regressions
 
 ---
 
+## Supported scenario: story-driven engineering decks
+
+This skill must support decks that tell one engineering story as a sequence of scenes: an incident, launch, migration, performance regression, diagnosis, or fix retold with escalating proof.
+
+Common shape:
+
+1. hook
+2. stakes
+3. investigation
+4. aha / diagnosis
+5. fix
+6. result
+7. lesson
+8. recap / navigation / CTA
+
+For this scenario:
+
+- treat animation as narrative infrastructure, not decoration
+- keep one canonical model for times, numbers, thresholds, and causal claims
+- make evidence visually dominant on proof slides
+- specify how each reveal step changes both the story and the visible proof
+- define whether any act-to-act style contrast is intentional, such as a bland "before" act and a polished "after" act
+
+---
+
 ## Inputs
 
 Expected input:
@@ -33,10 +58,24 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
 
 ## Workflow
 
-1. **Translate plan to slide units**
+1. **Lock the deck contract**
+   Before building slides, define:
+   - output format (`index.html`, `.pptx`, or other)
+   - delivery mode (live talk, async walkthrough, export, handoff)
+   - target aspect ratio and viewport
+   - runtime / browser support requirements
+   - build / run path (for example, open `index.html`, serve locally, or export a `.pptx`)
+
+   Default for live HTML decks:
+   - explicit aspect ratio, usually 16:9 for standard stage decks
+   - explicit working size matched to that ratio, for example 1920x1080 for 16:9 or 1080x1920 for 9:16
+   - latest Chrome and latest Firefox required
+   - Safari recommended when the deck is likely to be presented from a Mac or opened directly by the audience
+
+2. **Translate plan to slide units**
    Default rule: one slide, one main idea.
 
-2. **Assign each slide a job**
+3. **Assign each slide a job**
    For every slide, define:
    - title
    - purpose
@@ -44,27 +83,35 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - evidence or examples
    - transition to the next slide
 
-3. **Choose composition**
+4. **Choose composition**
    Decide whether the slide is best expressed as:
    - title + statement
    - comparison
    - diagram
    - process flow
    - hierarchy
+   - incident / case-study scene
+   - before / after retelling
+   - proof / diagnosis sequence
    - phased sequence
+   - recap / navigation map
    - summary / takeaway
    - **numeric result / change** → hand off slide design to **`stats-visualization`**
 
-4. **Write a composition contract**
+5. **Write a composition contract**
    Before implementing the slide, define:
+   - target viewport / aspect ratio
    - dominant object
    - supporting object
    - intended canvas split (for example 60/40, full-bleed evidence, or centered hero)
+   - opening visible state before any reveal
    - final visible state after all reveals
    - where late-entering labels / callouts will live
+   - safe margins or no-go zones near the slide edge
+   - whether the slide uses built-in Reveal behavior, custom SVG/CSS/JS, or static composition only
    - any browser-sensitive custom animation behavior that must replay on revisit
 
-5. **Specify reveal order**
+6. **Specify reveal order**
    Reveals and animation should match the spoken story:
    - premise before punchline
    - framework before detail
@@ -72,19 +119,20 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - each new claim, takeaway, or analysis point must reveal its matching visual evidence on the same step
    - markers, highlights, labels, callouts, and comparison cues should appear when the audience needs them, not a beat later
    - lower panels, captions, and bullets must not get ahead of what the audience can already see on the main visual
+   - if the deck uses navigation cues or recap tiles, they should reinforce where the audience is in the story
    - reserve space for late-entering elements so they stay readable and do not collide unless overlap is a deliberate visual move
 
-6. **Design for presentation readability**
+7. **Design for presentation readability**
    Prefer large readable text, strong contrast, clean visual hierarchy, and room-scale composition. Avoid website-density slides.
 
-7. **Produce implementation-ready deck content**
+8. **Produce implementation-ready deck content**
    The output can be:
    - slide-by-slide deck spec
    - draft slide copy
    - HTML deck changes
    - instructions for another deck tool
 
-8. **Run human stagecraft QA before completion**
+9. **Run human stagecraft QA before completion**
    This is a blocking pass, not optional polish.
    - inspect every slide as something meant for a live room, not just a browser tab
    - apply the hard rules below
@@ -101,14 +149,20 @@ Use this format when building or handing off the deck:
 
 - Purpose: [what this slide must achieve]
 - Audience takeaway: [what they should leave with]
+- Scenario role: [hook / stakes / investigation / fix / result / lesson / recap / other]
 - Content:
   - [point]
   - [point]
-- Layout: [diagram / 2-column / sequence / card grid / hero]
+- Format / runtime: [16:9 or 9:16 HTML Reveal deck / PPTX / other]
+- Visual system: [palette, type, contrast model, intentional theme contrast if any]
+- Layout: [diagram / 2-column / sequence / card grid / hero / proof scene]
 - Evidence sync: [what visual proof appears with each reveal / step]
+- Opening state: [what is visible before any reveal]
 - Reveal / animation order:
   1. [first element]
   2. [second element]
+- Build notes: [built-in fragments only / custom SVG / custom JS / replay requirement]
+- QA checks: [specific readability, replay, browser, or spacing checks]
 - Transition forward: [why the next slide follows]
 ```
 
@@ -140,14 +194,19 @@ Example output:
 - If a slide feels crowded, split it instead of shrinking everything.
 - The opening must establish context quickly.
 - The ending must land on a takeaway, action, or decision, not just stop.
+- **The live-talk canvas must be explicit.** For HTML decks, set a presentation size that matches the planned aspect ratio rather than assuming browser defaults will behave well enough. Standard stage decks usually use 16:9; vertical decks may intentionally use 9:16.
+- **Browser support is part of the build contract.** For HTML decks, latest Chrome and latest Firefox are mandatory. Safari should be checked when local Mac presentation or direct browser opening is part of the delivery path.
+- **Style must be intentional.** State the deck's palette, typography, density, spacing rhythm, and whether section-to-section contrast is deliberate.
+- **Before / after contrast must read as authored.** If one act is intentionally plain, ugly, or deadpan, make sure that contrast feels purposeful rather than accidentally unfinished.
 - **Numeric results are never prose.** Any slide carrying a result, improvement, change, target, or comparison (latency, adoption %, cost delta, error rate, etc.) gets a visual treatment per **`stats-visualization`** — hero number, before/after, bars, gauge, delta callout, or annotated change chart — with a reason label explaining *why* the number moved. Inline phrasing like "340 ms vs 65 ms" is a bug, not a slide.
 - **Reveal sync is mandatory.** For any fragment, reveal, or animation sequence, narrative and evidence land together. Do not reveal a claim, takeaway, caption, or bullet before the chart marker, highlight, labeled region, callout, or comparison cue that proves it.
 - **Every reveal state must remain readable.** New labels, callouts, captions, and badges cannot collide, overlap into ambiguity, or fight for the same space unless that collision is a clearly intentional artistic move.
 - **Keep the stack simple.** Default to Reveal.js 5.x from CDN, single `index.html`, no build tool, no installed dependencies (see [references/simple-reveal-deck.md](references/simple-reveal-deck.md)). Do not introduce a bundler, package manager, CSS framework, or bespoke navigation system unless a concrete requirement demands it and the default has been tried first. Every added dependency must earn its complexity.
-- **Treat "aspect ratio" complaints as composition bugs first.** If the deck is already using a 16:9 canvas, but the slide feels cropped, tiny, footer-heavy, or strangely empty, redesign the slide composition instead of blaming global deck size.
+- **Treat "aspect ratio" complaints as composition bugs first.** If the deck is already using its intended canvas, whether 16:9 or 9:16, but the slide feels cropped, tiny, footer-heavy, or strangely empty, redesign the slide composition instead of blaming global deck size.
 - **Related slides must share one incident model.** If the deck contains hook, diagnosis, fix, and result slides about the same event, the thresholds, timeline, and before/after numbers must line up exactly.
-- **Custom motion must replay.** Any chart, SVG, or scripted visual that animates on slide entry must also replay when revisiting the slide, not only on first render.
+- **Custom motion must replay.** Any chart, SVG, or scripted visual that animates on slide entry must also replay when revisiting the slide, not only on first render. The implementation should state how replay is triggered or remounted.
 - **Firefox is mandatory QA for HTML decks.** A deck is not complete when it only looks right in Chrome.
+- **Critical reveal-heavy decks need concrete QA checks.** If the deck depends on timing, replay, or annotation placement, write explicit per-slide checks instead of relying on vague manual confidence.
 - **Decorative recap grids are banned.** Storyboard / journey / recap slides must contain meaningful story beats, not empty or interchangeable tiles.
 
 ---
@@ -158,6 +217,7 @@ Before a deck is considered complete, run a mandatory **human stagecraft QA** pa
 
 Hard rules:
 
+- **Use the chosen canvas on purpose.** Whether the deck is 16:9 or 9:16, it should feel composed for that stage instead of looking like another document scaled into the frame.
 - **No auto-fit look.** Headlines, wordmarks, and hero objects must keep visible breathing room from the slide edges. If a long token or product name starts hugging the edge, split it, resize it, or constrain it to a column.
 - **No tiny idea objects.** Ban micro-demos, tiny dots, thin labels, miniature navigation markers, and other subscale elements unless the whole slide is about that object and it is enlarged enough to command attention.
 - **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
@@ -165,6 +225,7 @@ Hard rules:
 - **Payoff hierarchy must be obvious.** The main lesson, delta, or result cannot sit as a muted footer under a giant container. If it is the point, it must be visually dominant.
 - **No audience-facing scaffolding.** Never leave placeholder URLs, fake QR codes, TODO text, implementation reminders, or backstage instructions on visible slides.
 - **No accidental reveal collisions.** As elements enter across steps, they must remain readable, keep breathing room, and avoid unintended overlap. If the layout only works before the final fragment appears, redesign or split the slide.
+- **Navigation must earn its place.** Progress bars, recap grids, act labels, and "you are here" cues should clarify the story path, not add decorative noise.
 - **Distinguish intentional ugly from accidental ugly.** If a deck uses parody or contrast on purpose, preserve that; do not "fix" the joke. But do not let accidental machine-looking composition leak into the polished sections.
 
 Final review checklist:
@@ -187,6 +248,7 @@ For new decks, follow the simple default stack:
 
 - read [references/simple-reveal-deck.md](references/simple-reveal-deck.md) — Reveal.js 5.x from CDN, one `index.html`, no build, no install
 - use Reveal's built-in fragments / transitions before writing custom JS
+- set an explicit deck size in the Reveal config or equivalent that matches the planned aspect ratio
 - keep CSS tokens in `:root`; no stray hex colors
 
 For existing decks with a bespoke single-file HTML framework:
@@ -201,15 +263,36 @@ For any HTML deck, verify at least:
 
 - latest Chrome
 - latest Firefox
+- Safari when the plan, presenter environment, or delivery path makes it relevant
 
 Check:
 
+- deck is explicitly configured for the planned presentation aspect ratio
 - slide proportions feel intentionally composed in both browsers
 - custom charts / SVGs animate on first entry and on revisit
 - fragment timing still syncs story and proof
 - labels, callouts, and code blocks wrap the same way or remain equally readable
+- navigation cues, recap grids, and act labels still read correctly
+- the run path still matches the plan: direct-open, local server, CDN dependency, and any offline assumption
 
 If Firefox breaks the slide, the deck is not done.
+
+---
+
+## Verification for reveal-heavy HTML decks
+
+If the deck depends on custom motion, staged proof, annotation placement, or revisit replay, add a lightweight repeatable QA check for the critical slides instead of relying on memory.
+
+Typical checks:
+
+- fragment counts and reveal order
+- minimum evidence size for charts, code panels, demos, or payoff cards
+- annotation anchoring to the correct visual moment or data point
+- replay behavior on revisit
+- safe margins for headlines, hero objects, and wrapped titles
+- placeholder or backstage text removal
+
+This does not replace human stagecraft review. It prevents silent regressions in the parts of the deck where timing and layout are carrying meaning.
 
 ---
 

@@ -31,6 +31,25 @@ Recommended workflow:
 3. `presentation-plan-to-deck`
 4. `deck-review-update` (mandatory final human stagecraft QA before a deck is considered done)
 
+## Supported scenarios
+
+These skills are not limited to static business decks. A first-class supported scenario is a **story-driven engineering presentation** that may include:
+
+- one incident, migration, launch, regression, or fix told across multiple slides
+- before / after contrast between sections or acts
+- animated proof such as charts, diagrams, code diffs, or staged callouts
+- reveal-heavy sequencing where the audience should learn step by step
+- recap / navigation slides that help the audience track the story
+
+For that scenario, the skills now expect the plan and deck build to define:
+
+- the format and delivery contract, including an explicit aspect-ratio choice, with **16:9** as the common default and **9:16** supported when vertical delivery is intentional
+- the runtime/build path, such as single-file Reveal HTML or native deck output
+- the visual system and any intentional style contrast between sections
+- the motion / reveal strategy, including replay behavior on revisit
+- the browser support contract for HTML decks, with **latest Chrome and latest Firefox** as the minimum QA bar and Safari added when relevant
+- explicit stagecraft and runtime verification, not just "looks good"
+
 ## Regression hardening
 
 When a generated deck technically renders but still feels visually broken, use:

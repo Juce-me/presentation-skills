@@ -15,6 +15,20 @@ The main job is not cosmetic polish. It is to judge whether the deck tells the r
 
 ---
 
+## Supported scenario
+
+This skill explicitly covers **story-driven engineering decks** that retell one incident, launch, migration, regression, or fix across multiple slides, often using:
+
+- before / after contrast
+- animated proof slides
+- staged reveals
+- recap or navigation slides
+- deliberate visual style changes between acts
+
+When reviewing this kind of deck, treat story continuity, proof timing, runtime behavior, and build constraints as first-class concerns, not implementation details.
+
+---
+
 ## Review focus
 
 Check for:
@@ -28,6 +42,9 @@ Check for:
 - abrupt transitions
 - unsupported claims
 - weak landing or no real ending
+- missing or vague build/runtime contract
+- unclear or inconsistent visual system
+- act-to-act style contrast that feels accidental instead of intentional
 - visual/reveal choices that spoil the story order
 - claim, takeaway, or analysis text that appears before the audience can see the matching proof on the main visual
 - **numeric results presented as prose instead of visuals** (see `stats-visualization`)
@@ -41,6 +58,8 @@ Check for:
 - related slides whose numbers or timeline do not describe the same incident
 - custom motion that works once but does not replay on revisit
 - motion or SVG behavior that breaks in Firefox
+- reveal-heavy decks with no concrete QA evidence
+- browser/runtime assumptions that are incompatible with how the deck is supposed to be delivered
 - journey / recap slides made of decorative, empty, or interchangeable boxes
 
 ---
@@ -49,6 +68,10 @@ Check for:
 
 1. **Reconstruct the intended story**
    Infer the likely goal, audience, and through-line from the deck.
+   Also reconstruct the build/runtime contract:
+   - what format this deck is meant to run in
+   - whether it assumes 16:9, 9:16, or another presentation format
+   - whether it depends on browser behavior, local serving, CDN access, or native deck software
 
 2. **Test coherence**
    Ask:
@@ -56,6 +79,7 @@ Check for:
    - does each section build on the previous one
    - does the deck escalate meaningfully
    - does the ending resolve the promise made up front
+   - do style, motion, and navigation choices support the same story rather than competing with it
 
 3. **Find the highest-leverage issues**
    Prioritize structural problems before wording tweaks.
@@ -106,6 +130,16 @@ When reviewing, use this structure:
 - Placeholder or dev-only text still visible: [yes/no + slide refs]
 - Auto-fitted instead of human-composed: [yes/no + slide refs]
 
+## Build / Runtime QA
+
+- Planned aspect ratio explicitly supported: [yes/no + notes]
+- Run path matches delivery mode: [yes/no + notes]
+- Chrome verified: [yes/no + notes]
+- Firefox verified: [yes/no + notes]
+- Safari required and verified: [yes/no/n/a + notes]
+- Custom animation replays on revisit: [yes/no + slide refs]
+- Visual system / style contrast feels intentional: [yes/no + slide refs]
+
 ## Suggested update plan
 
 1. [Change]
@@ -125,7 +159,9 @@ If there are no major issues, say that explicitly and call out any residual risk
 - If one slide does too many jobs, split it.
 - Keep audience needs above source-material completeness.
 - Stagecraft QA failures are blocking. A deck with any `yes` answer in the final checklist is not done.
+- Missing runtime/build requirements are blocking when the deck depends on them.
 - For any fragment, reveal, or animation sequence, require narrative and evidence to advance together on the same step.
+- Preserve intentional style contrast in multi-act decks; remove accidental inconsistency.
 - Preserve intentional ugly, parody, or contrast when it is clearly part of the joke or rhetorical move. Remove only the accidental machine-looking composition.
 
 ---
@@ -161,6 +197,7 @@ Before calling a deck complete, run a mandatory **human stagecraft QA** pass. Ju
 
 Hard rules:
 
+- **Respect the chosen stage.** If the deck is meant for a standard wide screen or an intentional vertical screen, the composition should clearly use that space on purpose.
 - **No auto-fit look.** Headlines, wordmarks, and hero objects must keep visible breathing room from the slide edges. If a long token or product name starts hugging the edge, split it, resize it, or constrain it to a column.
 - **No tiny idea objects.** Ban micro-demos, tiny dots, thin labels, miniature navigation markers, and other subscale elements unless the whole slide is about that object and it is enlarged enough to command attention.
 - **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
@@ -168,6 +205,8 @@ Hard rules:
 - **Payoff hierarchy must be obvious.** The main lesson, delta, or result cannot sit as a muted footer under a giant container. If it is the point, it must be visually dominant.
 - **No audience-facing scaffolding.** Never leave placeholder URLs, fake QR codes, TODO text, implementation reminders, or backstage instructions on visible slides.
 - **No accidental reveal collisions.** Late-entering elements must remain readable and keep breathing room. If the final reveal creates overlap or crowding, redesign or split the slide.
+- **Navigation and recap must clarify the path.** Progress bars, journey grids, section labels, and "you are here" cues must reinforce story orientation.
+- **Style contrast must read as intentional.** If one section is plain, ugly, deadpan, or parody, that should feel authored rather than broken.
 - **Distinguish intentional ugly from accidental ugly.** If a deck uses parody or contrast on purpose, preserve that; do not "fix" the joke. But do not let accidental machine-looking composition leak into the polished sections.
 
 Final review checklist:
@@ -184,6 +223,8 @@ Final review checklist:
 - any related slides where the dates, thresholds, or result numbers do not line up?
 - any custom animation that fails to replay when revisiting the slide?
 - any slide that behaves differently enough in Firefox to change readability or meaning?
+- any missing or unclear runtime requirement that could break delivery?
+- any act-level visual language shift that feels accidental instead of intentional?
 - any recap / journey slide filled with decorative or empty boxes?
 
 If any answer is **yes**, the review is not complete. Revise the slide, then run the pass again. Only call the deck done when every answer is **no**.
