@@ -50,6 +50,8 @@ For either system, keep narrative and evidence synchronized. If a `.step` or rev
 
 Design each slide for its densest visible state, not just the opening frame. Late-entering labels, badges, and callouts need reserved space so they remain readable and do not collide unless overlap is a deliberate visual treatment.
 
+For 3-4 statement, principle, or summary cards that build toward one synthesis, use the final progressive step as an evidence-to-conclusion overlay: keep the cards in place, reveal a dark scrim over them, and center a narrower high-contrast conclusion panel above the grid. Treat bottom-of-slide takeaways under these grids as a review failure.
+
 ---
 
 ## Slide anatomy
@@ -86,6 +88,7 @@ Design each slide for its densest visible state, not just the opening frame. Lat
 | Race track | `.race-track` / `.race-checkpoint` | `.race-connector` as steps |
 | Cascade chain | `.vmap-col` / `.chain-step` | Tech vs Product |
 | Cards | `.sum-card`, `.expect-card`, `.phase-card` | Icons ≥3–4rem, titles ≥1.5rem |
+| Conclusion overlay | `.conclusion-scrim` / `.conclusion-panel` | Final step over a 3-4 card evidence grid; dark scrim, accent-yellow mono kicker, white body |
 | PRD anatomy | `.prd-anatomy` / `.prd-row` | `.prd-arrow` between rows |
 
 **Sizing:** Presentation-scale type; body on cards ≥`1.1rem`. Prefer centered vertical layout.
@@ -128,6 +131,7 @@ Renumber **highest to lowest**: IDs, comments, `SECTIONS`, step-config, promotio
 - [ ] New `.step` items in step-config; connectors use `.step.visible +`
 - [ ] Each reveal step advances claim and matching proof together
 - [ ] Lower captions / bullets never get ahead of the main visual
+- [ ] 3-4 evidence card slides use a final conclusion overlay, not a bottom takeaway
 - [ ] Final visible state stays readable; no accidental collisions
 - [ ] Card icons ≥3rem, titles ≥1.5rem
 - [ ] Two-roadmap distinction where applicable

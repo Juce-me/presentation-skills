@@ -108,6 +108,57 @@ That is a working deck. No build. No install. Nothing missing.
 - **Sync claim and proof on the same fragment.** If a fragment introduces a takeaway, analysis point, or comparison, reveal the matching marker, highlight, label, callout, or visual cue on that same step.
 - **Do not let lower copy outrun the visual.** Captions, bullets, and footer panels cannot explain evidence the audience cannot yet see.
 - **Design for the final fragment state.** Reserve space for late-entering elements so labels and callouts stay readable and do not collide unless the overlap is an intentional graphic effect.
+- **Use conclusion overlays for evidence grids.** When 3-4 statement cards build to one synthesis, reveal the cards first, then use a final fragment that dims the card grid and centers the conclusion above it. Do not put the takeaway as a footer under the grid.
+
+## Evidence-to-conclusion overlay
+
+Use this pattern when a slide has 3-4 cards that should become evidence for a later synthesis:
+
+```html
+<section class="evidence-slide">
+  <h2>Three things changed</h2>
+
+  <div class="evidence-grid">
+    <article class="evidence-card fragment">Statement one</article>
+    <article class="evidence-card fragment">Statement two</article>
+    <article class="evidence-card fragment">Statement three</article>
+  </div>
+
+  <div class="conclusion-layer fragment">
+    <div class="conclusion-scrim"></div>
+    <aside class="conclusion-panel">
+      <div class="conclusion-kicker">WHAT THIS MEANS</div>
+      <p>The old operating model is already gone. We need to design for the one people actually use.</p>
+    </aside>
+  </div>
+</section>
+```
+
+```css
+.evidence-slide { position: relative; }
+.evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.evidence-card { min-height: 12rem; padding: 1.5rem; background: var(--bg-card); }
+.conclusion-layer { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.conclusion-scrim { position: absolute; inset: 0; background: rgba(0, 0, 0, .72); }
+.conclusion-panel {
+  position: relative;
+  width: min(68%, 860px);
+  padding: 2rem 2.4rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--accent-yellow);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .45);
+}
+.conclusion-kicker {
+  color: var(--accent-yellow);
+  font-family: var(--mono-font);
+  font-size: .85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.conclusion-panel p { color: #fff; font-size: 2rem; line-height: 1.12; margin: .75rem 0 0; }
+```
+
+Use deck tokens for `--bg-card`, `--bg-panel`, `--accent-yellow`, and `--mono-font`. The overlay should be narrower than the grid and must leave the cards recognizable behind the scrim.
 
 When a slide uses custom JS charts, remount them on slide entry instead of assuming first render is enough:
 
@@ -172,6 +223,7 @@ Every upgrade earns its complexity or it does not happen.
 - A thin chart parked near the footer under a huge empty field.
 - A label that talks about a data point without a visible marker or leader stem.
 - A code or chart card centered inside a much larger empty panel with no compositional reason.
+- A 3-4 statement card grid with the conclusion parked as a bottom takeaway instead of revealed as an overlay.
 - A "journey" grid made of decorative or empty tiles that do not tell the story.
 - A chart that animates only on the first visit or only in one browser.
 

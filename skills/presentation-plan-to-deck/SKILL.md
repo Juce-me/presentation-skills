@@ -100,6 +100,7 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - phased sequence
    - recap / navigation map
    - summary / takeaway
+   - evidence card grid with synthesized conclusion overlay
    - **numeric result / change** → hand off slide design to **`stats-visualization`**
 
 5. **Write a composition contract**
@@ -111,6 +112,7 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - opening visible state before any reveal
    - final visible state after all reveals
    - where late-entering labels / callouts will live
+   - where the payoff lands, especially whether a 3-4 card evidence grid uses a conclusion overlay
    - safe margins or no-go zones near the slide edge
    - whether the slide uses built-in Reveal behavior, custom SVG/CSS/JS, or static composition only
    - any browser-sensitive custom animation behavior that must replay on revisit
@@ -125,6 +127,7 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - lower panels, captions, and bullets must not get ahead of what the audience can already see on the main visual
    - if the deck uses navigation cues or recap tiles, they should reinforce where the audience is in the story
    - reserve space for late-entering elements so they stay readable and do not collide unless overlap is a deliberate visual move
+   - when 3-4 statement, principle, or summary cards build evidence toward one takeaway, reveal the cards first, then reveal the takeaway as a centered conclusion overlay instead of placing it below the grid
 
 7. **Design for presentation readability**
    Prefer large readable text, strong contrast, clean visual hierarchy, and room-scale composition. Avoid website-density slides.
@@ -169,6 +172,35 @@ Use this format when building or handing off the deck:
 - QA checks: [specific readability, replay, browser, or spacing checks]
 - Transition forward: [why the next slide follows]
 ```
+
+---
+
+## Evidence-to-conclusion overlay
+
+Use this treatment when a slide contains 3-4 statement cards, principle blocks, or summary blocks that build evidence toward one synthesis.
+
+Default rule: **replace bottom-of-slide takeaways with a final conclusion overlay.** The audience should first see the supporting statements, then get the "so what?" as a clean reveal above them.
+
+Reveal order:
+
+1. Reveal the underlying statement blocks in place.
+2. On the next step, keep the blocks visible but dim them with a strong dark scrim.
+3. Place a centered conclusion block on top of the statements.
+
+Visual contract:
+
+- the overlay is narrower than the full grid so it reads as distilled synthesis, not another card
+- use a dark panel background with high contrast against the slide
+- use a small mono title in accent yellow, such as `THE DECISION`, `WHAT THIS MEANS`, or `WHAT WE DO DIFFERENTLY`
+- set the body in pure white
+- add a subtle accent border and soft shadow
+- keep the underlying cards recognizable but visually subordinate
+
+Narrative fit:
+
+- use for "What We'll Do Differently", "The Model We Actually Run", "What This Really Means", "The Decision", and similar synthesis beats
+- avoid using it for unrelated card collections where there is no single conclusion
+- if the slide has more than 4 evidence blocks, split the evidence or reduce it before using this treatment
 
 ---
 
@@ -227,6 +259,7 @@ Hard rules:
 - **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
 - **Reveal states must sync story to proof.** If a fragment introduces a claim, takeaway, or analysis point, the matching marker, highlight, label, callout, or comparison cue must appear on that same step. Lower captions and bullets cannot outrun the main visual.
 - **Payoff hierarchy must be obvious.** The main lesson, delta, or result cannot sit as a muted footer under a giant container. If it is the point, it must be visually dominant.
+- **Evidence-card payoffs use overlays.** When 3-4 statement, principle, or summary cards build to one synthesis, the final reveal should dim the cards and place the conclusion above them, not tuck the takeaway below the grid.
 - **No audience-facing scaffolding.** Never leave placeholder URLs, fake QR codes, TODO text, implementation reminders, or backstage instructions on visible slides.
 - **No accidental reveal collisions.** As elements enter across steps, they must remain readable, keep breathing room, and avoid unintended overlap. If the layout only works before the final fragment appears, redesign or split the slide.
 - **Navigation must earn its place.** Progress bars, recap grids, act labels, and "you are here" cues should clarify the story path, not add decorative noise.
@@ -238,6 +271,7 @@ Final review checklist:
 - any object too small to notice from the back row?
 - any slide where empty container chrome is larger than the insight?
 - any claim, caption, or bullet visible before its matching evidence appears?
+- any 3-4 evidence card slide using a bottom takeaway instead of a conclusion overlay?
 - any reveal step where late-entering elements collide or become hard to read?
 - any placeholder or dev-only text still visible?
 - any slide that feels auto-fitted instead of composed by a human?

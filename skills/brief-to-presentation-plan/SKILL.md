@@ -193,6 +193,7 @@ Use this structure unless the user asks for another format:
 
 ## Motion / reveal strategy
 - Reveal model: [none / fragments / animated charts / staged proof / auto-animate]
+- Evidence-to-conclusion overlays: [slides where 3-4 statement cards should reveal a centered synthesis overlay instead of a bottom takeaway]
 - Navigation cues: [progress bar / act labels / recap map / none]
 - Replay requirement: [what must re-run when revisiting a slide]
 
@@ -218,6 +219,7 @@ Use this structure unless the user asks for another format:
 - The plan must name the intended aspect ratio explicitly. **16:9** is the common default for standard stage decks, but **9:16** is fully supported when the user, venue, recording format, or distribution model calls for vertical delivery.
 - For HTML decks, treat **latest Chrome and latest Firefox** as the minimum browser support contract. Add Safari when the deck is likely to be presented from a Mac or opened locally.
 - If the presentation relies on animation, reveal order, or browser behavior, the plan must describe that explicitly instead of assuming implementation will "figure it out."
+- If 3-4 statement, principle, or summary blocks build toward one synthesis, call for an evidence-to-conclusion overlay instead of a bottom-of-slide takeaway.
 - If the same incident, migration, or before/after story appears on multiple slides, pin one canonical set of numbers, times, and causal claims in the plan.
 - The visual system should be explicit enough that implementation does not invent an arbitrary style, layout density, or contrast model.
 
