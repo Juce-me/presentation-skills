@@ -104,6 +104,8 @@ That is a working deck. No build. No install. Nothing missing.
 - **Pin the major version** (`reveal.js@5`) in CDN URLs so the deck doesn't drift when the CDN rolls forward.
 - **Tokens as CSS vars** in `:root`. No stray hex colors scattered through the file.
 - **Slide anatomy**: one `<section>` per slide. Vertical stacks via nested `<section>` only when the stack is genuinely hierarchical.
+- **One thought per section.** If the slide needs two claims or explanations, make two sections. The dominant visual plus title should make one simple implication or solution obvious.
+- **Minimum text.** Prefer graphs, pictures, diagrams, screenshots, demos, or spatial comparisons over paragraph copy and stacked bullets. Text labels the visual; it should not become the slide.
 - **Reveal order** uses `.fragment` (and `.fragment.fade-up`, `.fade-in-then-out`, etc.) — match the spoken story.
 - **Sync claim and proof on the same fragment.** If a fragment introduces a takeaway, analysis point, or comparison, reveal the matching marker, highlight, label, callout, or visual cue on that same step.
 - **Do not let lower copy outrun the visual.** Captions, bullets, and footer panels cannot explain evidence the audience cannot yet see.

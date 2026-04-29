@@ -2,6 +2,8 @@
 
 Portable skill set for creating presentations from input, turning plans into decks, and reviewing decks for story quality plus live-room stagecraft.
 
+Core slide rule: each slide carries one main thought, uses the minimum text needed to land it, and favors graphs, pictures, diagrams, screenshots, demos, or spatial comparisons over prose. The visual should make the implication or solution feel simple.
+
 ---
 
 ## Skills in this repository
