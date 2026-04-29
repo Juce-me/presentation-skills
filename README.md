@@ -1,6 +1,7 @@
 # Presentation skills
 
 Portable skill set for creating presentations from input, turning plans into decks, and reviewing decks for story quality plus live-room stagecraft.
+Use it carefully. It's still under development.
 
 ---
 
