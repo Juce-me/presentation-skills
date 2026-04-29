@@ -100,7 +100,8 @@ If the input is fragmented, normalize it first into a single working summary.
    - through-line
    - key tensions or tradeoffs
    - section-by-section flow
-   - slide-by-slide intent
+   - slide-by-slide intent, with one main thought per slide
+   - visual evidence plan for each slide: chart, diagram, screenshot, picture, demo frame, or spatial comparison before prose
    - format and delivery contract
    - visual system / style direction
    - motion / reveal strategy
@@ -175,8 +176,8 @@ Use this structure unless the user asks for another format:
 2. [Section name]: [purpose]
 
 ## Slide intents
-1. [Slide title] — [job this slide does]
-2. [Slide title] — [job this slide does]
+1. [Slide title] — [one main thought; primary visual proof; simple implication / solution]
+2. [Slide title] — [one main thought; primary visual proof; simple implication / solution]
 
 ## Format and delivery
 - Format: [HTML deck / PPTX / other]
@@ -188,7 +189,7 @@ Use this structure unless the user asks for another format:
 ## Visual system
 - Style direction: [clean / technical / bold / formal / etc.]
 - Palette / contrast rules: [what visual language the deck uses]
-- Typography / density rules: [how the deck should read in a live room]
+- Typography / density rules: [minimum text; visuals carry the explanation; how the deck should read in a live room]
 - Intentional contrast: [for example, plain "before" act vs polished "after" act]
 
 ## Motion / reveal strategy
@@ -215,6 +216,9 @@ Use this structure unless the user asks for another format:
 - Cut repetition from the source instead of preserving it.
 - Surface weak claims explicitly rather than smoothing them over.
 - If the source does not support a strong presentation yet, say so and list what is missing.
+- Every planned slide must have exactly one main thought. If a slide needs two claims, two decisions, or two explanations, split it before deck build.
+- Each slide thought should lead to a simple implication, answer, decision, or solution. If the "so what?" is not obvious, revise the slide intent.
+- Plan for minimum text: prefer graphs, pictures, diagrams, screenshots, demos, or spatial comparisons over bullet paragraphs. Use prose only to label and land the visual.
 - The plan must name the intended build/runtime path when presentation behavior depends on the medium.
 - The plan must name the intended aspect ratio explicitly. **16:9** is the common default for standard stage decks, but **9:16** is fully supported when the user, venue, recording format, or distribution model calls for vertical delivery.
 - For HTML decks, treat **latest Chrome and latest Firefox** as the minimum browser support contract. Add Safari when the deck is likely to be presented from a Mac or opened locally.

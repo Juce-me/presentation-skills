@@ -22,6 +22,7 @@ Use this skill when the user wants to create a presentation but only has a topic
 - Order matters — later questions depend on earlier answers.
 - Adapt options to context — drop irrelevant options, add obvious missing ones.
 - Accept freeform answers — if the user ignores options, roll with it.
+- Set the slide philosophy early: one main thought per slide, minimum text, and visual-first explanation through graphs, pictures, diagrams, screenshots, demos, or spatial comparisons.
 
 ---
 
@@ -122,6 +123,9 @@ After all questions are answered, produce a brief using this structure:
 ## Implementation framework
 [Chosen tech or TBD]
 
+## Slide philosophy
+[One main thought per slide; minimum text; likely visual modes such as graphs, pictures, diagrams, screenshots, demos, or spatial comparisons]
+
 ## Raw context
 [Additional details / constraints from discovery]
 ```
@@ -135,6 +139,7 @@ Present the brief for review. On approval, hand off to `brief-to-presentation-pl
 - Brief must reflect actual answers, not defaults.
 - Recommendations must have reasoning.
 - Narrative approach must be tailored to the specific combination — not a generic template.
+- Brief must preserve the slide philosophy: one main thought per slide, visuals over prose, and a simple implication or solution for each major beat.
 - If answers are contradictory (e.g., lightning talk + deep analytical tone), surface the tension and help resolve it.
 
 ---

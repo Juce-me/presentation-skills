@@ -100,6 +100,8 @@ Once all selections are made, embed each GIF into its slide. Match the deck's fr
 
 Prefer the hosted Giphy URL over downloading — it keeps the deck lightweight and always-fresh.
 
+Do not let the GIF become a second main thought. If adding it makes the slide text-heavy, crowded, or less clear, replace supporting prose with the GIF or skip the slide.
+
 ### 5. Confirm
 
 Summarize: slides updated, GIFs embedded, plus any slides where the user chose `Skip` or `Retry` was exhausted. Offer to run `deck-review-update` to re-check pacing now that visuals have changed.
@@ -130,6 +132,7 @@ Two things:
 ## Quality bar
 
 - Never add a GIF to every slide — restraint is the point. If the user says "all of them," push back once.
+- Preserve one main thought per slide. A GIF should reinforce the beat, not compete with the message or force more text.
 - Keyword should describe the **emotion or beat** of the slide, not its literal content. "Confused Dory" works; "data pipeline failure" does not.
 - Respect deck tone — skip the skill entirely if the audience/setting is wrong, even if the user asked for it. Surface the mismatch first.
 - Never commit a secret. If `GIPHY_API_KEY` ends up in the deck file, scrub it.

@@ -43,6 +43,9 @@ Check for:
 - missing stakes
 - repetitive slides
 - overloaded slides
+- slides with more than one main thought
+- slides whose implication, decision, or solution is buried in text instead of visible in the composition
+- text-heavy slides that should be rebuilt around a graph, picture, diagram, screenshot, demo frame, or spatial comparison
 - abrupt transitions
 - unsupported claims
 - weak landing or no real ending
@@ -128,6 +131,9 @@ When reviewing, use this structure:
 ## Human stagecraft QA
 
 - Text hugging the screen edge: [yes/no + slide refs]
+- More than one main thought on a slide: [yes/no + slide refs]
+- Text-heavy where a visual would explain faster: [yes/no + slide refs]
+- Simple implication / solution buried in prose: [yes/no + slide refs]
 - Object too small for the back row: [yes/no + slide refs]
 - Empty container chrome larger than the insight: [yes/no + slide refs]
 - Claim appears before matching evidence: [yes/no + slide refs]
@@ -163,6 +169,9 @@ If there are no major issues, say that explicitly and call out any residual risk
 - Protect the through-line; do not add slides that dilute it.
 - If two slides do the same job, merge or remove one.
 - If one slide does too many jobs, split it.
+- If one slide carries more than one main thought, split it before rewriting copy.
+- If the audience has to read paragraphs or stacked bullets to understand the point, replace the prose with a graph, picture, diagram, screenshot, demo frame, or spatial comparison.
+- Each slide should land a simple implication, decision, or solution. If that outcome is buried in supporting text, redesign the visual hierarchy.
 - Keep audience needs above source-material completeness.
 - Stagecraft QA failures are blocking. A deck with any `yes` answer in the final checklist is not done.
 - Missing runtime/build requirements are blocking when the deck depends on them.
@@ -188,9 +197,12 @@ Do not treat this as a polish issue — it is structural. A deck that buries its
 During review, flag any slide that is doing too much. Signs of a complicated slide:
 
 - more than one distinct concept or argument
+- the main thought cannot be stated in one plain sentence
+- the conclusion, decision, or solution only appears as a prose takeaway
 - multiple charts, diagrams, or data tables on the same slide
 - a layout that requires the speaker to explain how to read the slide before reading it
 - text or visual elements that are shrunk to fit rather than naturally sized
+- bullet paragraphs doing work that a visual should do
 
 **Default action: split into separate slides.**
 
@@ -205,6 +217,8 @@ Before calling a deck complete, run a mandatory **human stagecraft QA** pass. Ju
 Hard rules:
 
 - **Respect the chosen stage.** If the deck is meant for a standard wide screen or an intentional vertical screen, the composition should clearly use that space on purpose.
+- **One thought at room scale.** The slide's title and dominant visual should make one main thought obvious without asking the audience to read a dense block.
+- **Visuals carry explanation.** Prefer graphs, pictures, diagrams, screenshots, demos, and spatial comparisons over prose. Text should label, not become the slide.
 - **No auto-fit look.** Headlines, wordmarks, and hero objects must keep visible breathing room from the slide edges. If a long token or product name starts hugging the edge, split it, resize it, or constrain it to a column.
 - **No tiny idea objects.** Ban micro-demos, tiny dots, thin labels, miniature navigation markers, and other subscale elements unless the whole slide is about that object and it is enlarged enough to command attention.
 - **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
@@ -220,6 +234,9 @@ Hard rules:
 Final review checklist:
 
 - any text hugging the screen edge?
+- any slide with more than one main thought?
+- any text-heavy slide where a visual would explain faster?
+- any slide whose simple implication, decision, or solution is buried in prose?
 - any object too small to notice from the back row?
 - any slide where empty container chrome is larger than the insight?
 - any claim, caption, or bullet visible before its matching evidence appears?

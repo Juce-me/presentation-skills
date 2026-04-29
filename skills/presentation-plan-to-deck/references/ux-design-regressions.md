@@ -33,11 +33,25 @@ Default fix:
 Symptoms:
 - the copy column feels ragged, holey, or oddly broken across lines
 - the speaker has to visually search the left side to find the story order
+- the slide relies on paragraphs or stacked bullets where a graph, picture, diagram, screenshot, or spatial comparison would land faster
 
 Default fix:
 - tighten the column width and line-length range
 - group related lines into one readable text block
 - use spacing to create sequence, not randomness
+- replace explanatory prose with a dominant visual whenever the text is carrying the main idea
+
+### 2b. Multiple-thought slide
+
+Symptoms:
+- the title, copy, and visual are trying to make two different claims
+- the main thought needs an "and" to explain what the slide does
+- the proposed solution or implication is only visible as a prose takeaway
+
+Default fix:
+- split the slide until each slide has one main thought
+- make the dominant visual and title land that thought before the audience reads detail labels
+- keep only the text needed to name the visual and the simple implication
 
 ### 3. Footer-hugging evidence
 
@@ -95,6 +109,8 @@ Default fix:
 ## Acceptance checklist
 
 - Is the dominant object obvious?
+- Does the slide have exactly one main thought?
+- Is the implication or solution visible in the composition rather than buried in text?
 - Does the evidence carry visual weight proportional to the claim?
 - Does every annotation clearly anchor to what it explains?
 - Do related slides use the same incident data?

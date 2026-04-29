@@ -77,14 +77,17 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - Safari recommended when the deck is likely to be presented from a Mac or opened directly by the audience
 
 2. **Translate plan to slide units**
-   Default rule: one slide, one main idea.
+   Default rule: one slide, one main thought.
+   The thought should fit in one plain sentence and point to a simple implication, answer, decision, or solution. If a slide needs two thoughts, split it.
 
 3. **Assign each slide a job**
    For every slide, define:
    - title
    - purpose
+   - single main thought
    - key message
-   - evidence or examples
+   - primary visual evidence or example
+   - simple implication / solution the slide should make obvious
    - transition to the next slide
 
 4. **Choose composition**
@@ -92,6 +95,9 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - title + statement
    - comparison
    - diagram
+   - graph / chart
+   - screenshot / product image
+   - photo / picture
    - process flow
    - hierarchy
    - incident / case-study scene
@@ -130,7 +136,7 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - when 3-4 statement, principle, or summary cards build evidence toward one takeaway, reveal the cards first, then reveal the takeaway as a centered conclusion overlay instead of placing it below the grid
 
 7. **Design for presentation readability**
-   Prefer large readable text, strong contrast, clean visual hierarchy, and room-scale composition. Avoid website-density slides.
+   Prefer large readable text, strong contrast, clean visual hierarchy, and room-scale composition. Use the minimum text needed to label the idea; let graphs, pictures, diagrams, screenshots, demos, or spatial comparisons carry the explanation. Avoid website-density slides and bullet-heavy slides.
 
 8. **Produce implementation-ready deck content**
    The output can be:
@@ -156,10 +162,12 @@ Use this format when building or handing off the deck:
 
 - Purpose: [what this slide must achieve]
 - Audience takeaway: [what they should leave with]
+- Main thought: [one sentence only; split the slide if this needs an "and"]
+- Simple implication / solution: [what the thought makes obvious]
 - Scenario role: [hook / stakes / investigation / fix / result / lesson / recap / other]
 - Content:
-  - [point]
-  - [point]
+  - [short label or claim]
+- Primary visual: [graph / picture / diagram / screenshot / demo / spatial comparison]
 - Format / runtime: [16:9 or 9:16 HTML Reveal deck / PPTX / other]
 - Visual system: [palette, type, contrast model, intentional theme contrast if any]
 - Layout: [diagram / 2-column / sequence / card grid / hero / proof scene]
@@ -226,6 +234,9 @@ Example output:
 ## Accuracy rules
 
 - Every slide must trace back to the approved plan.
+- **One thought per slide is blocking.** If a slide carries two main claims, two explanations, or a claim plus an unrelated aside, split it.
+- **Minimum text is the default.** A slide should not explain itself through paragraph copy or stacked bullets when a graph, picture, diagram, screenshot, demo frame, or spatial comparison can carry the idea faster.
+- **The visual should make the solution feel simple.** The audience should be able to see the implication before reading supporting labels.
 - Layout and animation must reinforce meaning, not decorate it.
 - If a slide feels crowded, split it instead of shrinking everything.
 - The opening must establish context quickly.
@@ -254,7 +265,9 @@ Before a deck is considered complete, run a mandatory **human stagecraft QA** pa
 Hard rules:
 
 - **Use the chosen canvas on purpose.** Whether the deck is 16:9 or 9:16, it should feel composed for that stage instead of looking like another document scaled into the frame.
+- **One thought at room scale.** The audience should be able to name the slide's one main thought from the dominant visual and title alone.
 - **No auto-fit look.** Headlines, wordmarks, and hero objects must keep visible breathing room from the slide edges. If a long token or product name starts hugging the edge, split it, resize it, or constrain it to a column.
+- **Visuals carry explanation.** If the slide is mostly text, redesign it around a graph, picture, diagram, screenshot, demo frame, or split it.
 - **No tiny idea objects.** Ban micro-demos, tiny dots, thin labels, miniature navigation markers, and other subscale elements unless the whole slide is about that object and it is enlarged enough to command attention.
 - **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
 - **Reveal states must sync story to proof.** If a fragment introduces a claim, takeaway, or analysis point, the matching marker, highlight, label, callout, or comparison cue must appear on that same step. Lower captions and bullets cannot outrun the main visual.
@@ -267,6 +280,9 @@ Hard rules:
 
 Final review checklist:
 
+- any slide with more than one main thought?
+- any slide whose solution or implication is buried in text instead of visible in the composition?
+- any text-heavy slide where a graph, picture, diagram, screenshot, demo frame, or spatial comparison would explain it faster?
 - any text hugging the screen edge?
 - any object too small to notice from the back row?
 - any slide where empty container chrome is larger than the insight?

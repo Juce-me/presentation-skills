@@ -48,6 +48,8 @@ Connectors after a step: `.step.visible + .connector-class { opacity: 1; }` — 
 
 For either system, keep narrative and evidence synchronized. If a `.step` or reveal state introduces a claim, takeaway, or analysis point, the matching marker, highlight, label, callout, or comparison cue must become visible on that same step. Do not let a lower caption, bullet block, or side panel get ahead of the main visual.
 
+Each slide should carry one main thought. If the thought needs an "and", split it. Prefer a graph, picture, diagram, screenshot, demo frame, or spatial comparison that makes the implication or solution obvious before the audience reads supporting labels.
+
 Design each slide for its densest visible state, not just the opening frame. Late-entering labels, badges, and callouts need reserved space so they remain readable and do not collide unless overlap is a deliberate visual treatment.
 
 For 3-4 statement, principle, or summary cards that build toward one synthesis, use the final progressive step as an evidence-to-conclusion overlay: keep the cards in place, reveal a dark scrim over them, and center a narrower high-contrast conclusion panel above the grid. Treat bottom-of-slide takeaways under these grids as a review failure.
@@ -128,6 +130,8 @@ Renumber **highest to lowest**: IDs, comments, `SECTIONS`, step-config, promotio
 
 - [ ] CSS variables — no stray hex
 - [ ] `.sdesc` non-empty on every slide touched
+- [ ] One main thought per slide; no slide needs an "and" to explain its job
+- [ ] Text is minimal; visual proof carries the explanation
 - [ ] New `.step` items in step-config; connectors use `.step.visible +`
 - [ ] Each reveal step advances claim and matching proof together
 - [ ] Lower captions / bullets never get ahead of the main visual
