@@ -11,6 +11,8 @@ description: >-
 
 Use this skill when the user wants to create a presentation but only has a topic or rough idea — no written brief, notes, transcript, or document yet. The job here is to run a guided discovery conversation and produce a brief, not to plan the deck.
 
+**Canonical slide rules:** load [`../_shared/slide-philosophy.md`](../_shared/slide-philosophy.md). The brief must set the four-pillar expectation (one thought, ≤1 body sentence besides graphics/labels/titles, visual-first, forward motion at 10–35 s/slide) for the rest of the pipeline.
+
 **Skip when:** the user already has a brief, notes, transcript, or document — go directly to `brief-to-presentation-plan`.
 
 ---
@@ -22,7 +24,7 @@ Use this skill when the user wants to create a presentation but only has a topic
 - Order matters — later questions depend on earlier answers.
 - Adapt options to context — drop irrelevant options, add obvious missing ones.
 - Accept freeform answers — if the user ignores options, roll with it.
-- Set the slide philosophy early: one main thought per slide, minimum text, and visual-first explanation through graphs, pictures, diagrams, screenshots, demos, or spatial comparisons.
+- Set the slide philosophy early — all four pillars from `../_shared/slide-philosophy.md`: one main thought (one plain sentence, no "and"), minimum text (≤1 sentence besides graphics/labels/titles), visual-first, forward motion (10–35 s/slide, default to step reveals).
 
 ---
 
@@ -40,11 +42,13 @@ Use this skill when the user wants to create a presentation but only has a topic
 
 ### 2. Format and length
 
+Pace target: **10–35 seconds per slide**. The presenter advances; they do not dwell. If a chosen slide count puts the average above ~35 s/slide, push back and split.
+
 | Option | Description | Slide estimate |
 |--------|-------------|----------------|
-| A | Lightning talk (5–7 min) | ~15–20 slides |
-| B | Standard talk (20–25 min) | ~30–40 slides |
-| C | Full session (40–45 min) | ~50–60 slides |
+| A | Lightning talk (5–7 min) | ~15–25 slides |
+| B | Standard talk (20–25 min) | ~50–80 slides |
+| C | Full session (40–45 min) | ~90–140 slides |
 
 ### 3. Tone
 
@@ -124,7 +128,7 @@ After all questions are answered, produce a brief using this structure:
 [Chosen tech or TBD]
 
 ## Slide philosophy
-[One main thought per slide; minimum text; likely visual modes such as graphs, pictures, diagrams, screenshots, demos, or spatial comparisons]
+[Four pillars from `skills/_shared/slide-philosophy.md`: one main thought (one plain sentence, no "and"); ≤1 body sentence on the slide besides graphics/labels/titles; visual-first (graphs, pictures, diagrams, screenshots, demos, spatial comparisons); forward motion (default to step reveals; 10–35 s/slide; every slide hints at what comes next)]
 
 ## Raw context
 [Additional details / constraints from discovery]
@@ -139,7 +143,7 @@ Present the brief for review. On approval, hand off to `brief-to-presentation-pl
 - Brief must reflect actual answers, not defaults.
 - Recommendations must have reasoning.
 - Narrative approach must be tailored to the specific combination — not a generic template.
-- Brief must preserve the slide philosophy: one main thought per slide, visuals over prose, and a simple implication or solution for each major beat.
+- Brief must preserve all four pillars from `../_shared/slide-philosophy.md`. The forward-motion pillar (10–35 s/slide, default to reveals, named transitions) is non-optional.
 - If answers are contradictory (e.g., lightning talk + deep analytical tone), surface the tension and help resolve it.
 
 ---

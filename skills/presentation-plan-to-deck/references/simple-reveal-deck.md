@@ -104,63 +104,16 @@ That is a working deck. No build. No install. Nothing missing.
 - **Pin the major version** (`reveal.js@5`) in CDN URLs so the deck doesn't drift when the CDN rolls forward.
 - **Tokens as CSS vars** in `:root`. No stray hex colors scattered through the file.
 - **Slide anatomy**: one `<section>` per slide. Vertical stacks via nested `<section>` only when the stack is genuinely hierarchical.
-- **One thought per section.** If the slide needs two claims or explanations, make two sections. The dominant visual plus title should make one simple implication or solution obvious.
-- **Minimum text.** Prefer graphs, pictures, diagrams, screenshots, demos, or spatial comparisons over paragraph copy and stacked bullets. Text labels the visual; it should not become the slide.
+- **Honor the four pillars** from [`../../_shared/slide-philosophy.md`](../../_shared/slide-philosophy.md): one thought per section (one plain sentence, no "and"), at most one body sentence besides graphics/labels/titles, visual-first, forward motion. Two thoughts → two sections.
+- **Default to `.fragment` reveals.** Static slides are the exception; most slides should reveal at least one element after the opening state to honor pillar 4.
 - **Reveal order** uses `.fragment` (and `.fragment.fade-up`, `.fade-in-then-out`, etc.) — match the spoken story.
-- **Sync claim and proof on the same fragment.** If a fragment introduces a takeaway, analysis point, or comparison, reveal the matching marker, highlight, label, callout, or visual cue on that same step.
-- **Do not let lower copy outrun the visual.** Captions, bullets, and footer panels cannot explain evidence the audience cannot yet see.
-- **Design for the final fragment state.** Reserve space for late-entering elements so labels and callouts stay readable and do not collide unless the overlap is an intentional graphic effect.
-- **Use conclusion overlays for evidence grids.** When 3-4 statement cards build to one synthesis, reveal the cards first, then use a final fragment that dims the card grid and centers the conclusion above it. Do not put the takeaway as a footer under the grid.
+- **Sync claim and proof on the same fragment.** A caption, bullet, or footer panel must never name evidence the audience cannot yet see.
+- **Design for the final fragment state.** Reserve space for late-entering elements so labels and callouts stay readable; no accidental collisions.
+- **Use the canonical evidence-to-conclusion overlay** for any 3–4 card synthesis slide ([`../../_shared/evidence-to-conclusion-overlay.md`](../../_shared/evidence-to-conclusion-overlay.md)).
 
 ## Evidence-to-conclusion overlay
 
-Use this pattern when a slide has 3-4 cards that should become evidence for a later synthesis:
-
-```html
-<section class="evidence-slide">
-  <h2>Three things changed</h2>
-
-  <div class="evidence-grid">
-    <article class="evidence-card fragment">Statement one</article>
-    <article class="evidence-card fragment">Statement two</article>
-    <article class="evidence-card fragment">Statement three</article>
-  </div>
-
-  <div class="conclusion-layer fragment">
-    <div class="conclusion-scrim"></div>
-    <aside class="conclusion-panel">
-      <div class="conclusion-kicker">WHAT THIS MEANS</div>
-      <p>The old operating model is already gone. We need to design for the one people actually use.</p>
-    </aside>
-  </div>
-</section>
-```
-
-```css
-.evidence-slide { position: relative; }
-.evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.evidence-card { min-height: 12rem; padding: 1.5rem; background: var(--bg-card); }
-.conclusion-layer { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
-.conclusion-scrim { position: absolute; inset: 0; background: rgba(0, 0, 0, .72); }
-.conclusion-panel {
-  position: relative;
-  width: min(68%, 860px);
-  padding: 2rem 2.4rem;
-  background: var(--bg-panel);
-  border: 1px solid var(--accent-yellow);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, .45);
-}
-.conclusion-kicker {
-  color: var(--accent-yellow);
-  font-family: var(--mono-font);
-  font-size: .85rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.conclusion-panel p { color: #fff; font-size: 2rem; line-height: 1.12; margin: .75rem 0 0; }
-```
-
-Use deck tokens for `--bg-card`, `--bg-panel`, `--accent-yellow`, and `--mono-font`. The overlay should be narrower than the grid and must leave the cards recognizable behind the scrim.
+For 3–4 statement cards that build to one synthesis, use the canonical pattern in [`../../_shared/evidence-to-conclusion-overlay.md`](../../_shared/evidence-to-conclusion-overlay.md). The Reveal.js implementation is in that file.
 
 When a slide uses custom JS charts, remount them on slide entry instead of assuming first render is enough:
 

@@ -108,9 +108,9 @@ Default fix:
 
 ## Acceptance checklist
 
+This file targets composition-specific failure modes. The full slide-level pass is canonical: run [`../../_shared/stagecraft-qa.md`](../../_shared/stagecraft-qa.md). Composition-specific spot checks:
+
 - Is the dominant object obvious?
-- Does the slide have exactly one main thought?
-- Is the implication or solution visible in the composition rather than buried in text?
 - Does the evidence carry visual weight proportional to the claim?
 - Does every annotation clearly anchor to what it explains?
 - Do related slides use the same incident data?

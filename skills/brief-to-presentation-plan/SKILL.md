@@ -12,6 +12,8 @@ description: >-
 
 Use this skill when the user provides source material and wants a presentation created from it. The job here is to turn raw input into a clear plan, not to design slide layouts yet.
 
+**Canonical slide rules:** load [`../_shared/slide-philosophy.md`](../_shared/slide-philosophy.md) before planning. Every slide intent must satisfy all four pillars: one thought, minimum text (≤1 sentence besides graphics/labels/titles), visual-first, and forward motion (reveals + 10–35 s pace + named transition).
+
 ---
 
 ## Supported scenarios
@@ -75,7 +77,10 @@ If the input is fragmented, normalize it first into a single working summary.
    - where theory and reality diverge
 
 6. **Choose the story shape**
-   Default arc:
+
+   Two canonical arcs. Pick one and use it consistently in the plan; do not blend them.
+
+   **Generic arc (default):**
    - setup
    - orientation
    - development
@@ -83,7 +88,7 @@ If the input is fragmented, normalize it first into a single working summary.
    - resolution
    - landing
 
-   For story-driven engineering decks, consider this default narrative spine:
+   **Engineering-story arc** — use for an incident, migration, launch, regression, diagnosis, or fix retold as one narrative:
    - hook
    - stakes
    - investigation
@@ -93,6 +98,8 @@ If the input is fragmented, normalize it first into a single working summary.
    - lesson
    - recap / navigation / CTA
 
+   The output template below has a slot for whichever arc you pick.
+
 7. **Create the presentation plan**
    Produce:
    - presentation goal
@@ -100,8 +107,9 @@ If the input is fragmented, normalize it first into a single working summary.
    - through-line
    - key tensions or tradeoffs
    - section-by-section flow
-   - slide-by-slide intent, with one main thought per slide
+   - slide-by-slide intent, with one main thought per slide and the forward transition to the next slide
    - visual evidence plan for each slide: chart, diagram, screenshot, picture, demo frame, or spatial comparison before prose
+   - per-slide reveal intent (which element appears on which step)
    - format and delivery contract
    - visual system / style direction
    - motion / reveal strategy
@@ -164,6 +172,9 @@ Use this structure unless the user asks for another format:
 - [Tension 2]
 
 ## Narrative arc
+[Pick one — Generic OR Engineering-story — and fill in the matching beats. Delete the other.]
+
+**Generic arc:**
 1. Setup
 2. Orientation
 3. Development
@@ -171,13 +182,23 @@ Use this structure unless the user asks for another format:
 5. Resolution
 6. Landing
 
+**Engineering-story arc:**
+1. Hook
+2. Stakes
+3. Investigation
+4. Aha / diagnosis
+5. Fix
+6. Result
+7. Lesson
+8. Recap / navigation / CTA
+
 ## Deck structure
 1. [Section name]: [purpose]
 2. [Section name]: [purpose]
 
 ## Slide intents
-1. [Slide title] — [one main thought; primary visual proof; simple implication / solution]
-2. [Slide title] — [one main thought; primary visual proof; simple implication / solution]
+1. [Slide title] — [one main thought (one plain sentence, no "and"); primary visual proof; reveal intent; forward transition to next slide]
+2. [Slide title] — [one main thought; primary visual proof; reveal intent; forward transition]
 
 ## Format and delivery
 - Format: [HTML deck / PPTX / other]
@@ -212,20 +233,22 @@ Use this structure unless the user asks for another format:
 
 ## Quality bar
 
+**Slide rules:** every planned slide must satisfy the four pillars in [`../_shared/slide-philosophy.md`](../_shared/slide-philosophy.md). The plan is rejected if any slide intent violates one of them at the planning stage.
+
+Plan-level requirements on top of the pillars:
+
 - The plan must be driven by audience and outcome, not by source-document order.
 - Cut repetition from the source instead of preserving it.
 - Surface weak claims explicitly rather than smoothing them over.
 - If the source does not support a strong presentation yet, say so and list what is missing.
-- Every planned slide must have exactly one main thought. If a slide needs two claims, two decisions, or two explanations, split it before deck build.
-- Each slide thought should lead to a simple implication, answer, decision, or solution. If the "so what?" is not obvious, revise the slide intent.
-- Plan for minimum text: prefer graphs, pictures, diagrams, screenshots, demos, or spatial comparisons over bullet paragraphs. Use prose only to label and land the visual.
 - The plan must name the intended build/runtime path when presentation behavior depends on the medium.
-- The plan must name the intended aspect ratio explicitly. **16:9** is the common default for standard stage decks, but **9:16** is fully supported when the user, venue, recording format, or distribution model calls for vertical delivery.
+- The plan must name the intended aspect ratio explicitly. **16:9** is the common default for standard stage decks; **9:16** is fully supported when the user, venue, recording format, or distribution model calls for vertical delivery.
 - For HTML decks, treat **latest Chrome and latest Firefox** as the minimum browser support contract. Add Safari when the deck is likely to be presented from a Mac or opened locally.
-- If the presentation relies on animation, reveal order, or browser behavior, the plan must describe that explicitly instead of assuming implementation will "figure it out."
-- If 3-4 statement, principle, or summary blocks build toward one synthesis, call for an evidence-to-conclusion overlay instead of a bottom-of-slide takeaway.
+- The motion / reveal strategy is a first-class plan section, not an afterthought. Name reveal strategy, replay behavior on revisit, and the navigation / "what's coming" cues.
+- If 3–4 statement, principle, or summary blocks build toward one synthesis, call for an evidence-to-conclusion overlay (see [`../_shared/evidence-to-conclusion-overlay.md`](../_shared/evidence-to-conclusion-overlay.md)).
 - If the same incident, migration, or before/after story appears on multiple slides, pin one canonical set of numbers, times, and causal claims in the plan.
 - The visual system should be explicit enough that implementation does not invent an arbitrary style, layout density, or contrast model.
+- The slide count must respect the 10–35 s/slide pace target. If the proposed count puts the average above ~35 s/slide, push back and split.
 
 ---
 

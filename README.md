@@ -3,7 +3,14 @@
 Portable skill set for creating presentations from input, turning plans into decks, and reviewing decks for story quality plus live-room stagecraft.
 Use it carefully. It's still under development.
 
-Core slide rule: each slide carries one main thought, uses the minimum text needed to land it, and favors graphs, pictures, diagrams, screenshots, demos, or spatial comparisons over prose. The visual should make the implication or solution feel simple.
+Core slide rule — four pillars, all required:
+
+1. **One thought per slide.** Fits in one plain sentence; never needs an "and".
+2. **Minimum text.** At most one sentence on the slide besides graphics, labels, and titles.
+3. **Visual-first.** Graph, picture, diagram, screenshot, demo, or spatial comparison carries the explanation. The audience should be able to name the slide's main thought from the dominant visual + title alone.
+4. **Forward motion.** The story is always moving. Default to revealing in steps; pace 10–35 s per slide; every slide sets up what comes next; reveal sync is non-negotiable; custom motion replays on revisit.
+
+Canon for these rules lives in [`skills/_shared/slide-philosophy.md`](skills/_shared/slide-philosophy.md). When skills disagree with that file, the file wins.
 
 ---
 
@@ -11,6 +18,9 @@ Core slide rule: each slide carries one main thought, uses the minimum text need
 
 | Path | Purpose |
 |------|---------|
+| `skills/_shared/slide-philosophy.md` | Canonical four-pillar slide rules — every other skill loads this as truth |
+| `skills/_shared/stagecraft-qa.md` | Canonical human stagecraft QA hard rules + final checklist |
+| `skills/_shared/evidence-to-conclusion-overlay.md` | Canonical evidence-card synthesis pattern (HTML/CSS) |
 | `skills/presentation-discovery/SKILL.md` | Guided discovery when there is no brief yet — produces a brief from structured Q&A |
 | `skills/brief-to-presentation-plan/SKILL.md` | Turn a brief, notes, transcript, or doc into a presentation plan |
 | `skills/presentation-plan-to-deck/SKILL.md` | Turn an approved plan into an actual deck with layout, reveal logic, and a mandatory stagecraft QA pass before completion |

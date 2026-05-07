@@ -46,13 +46,11 @@ One-off `rgba(..., .08)` tints are acceptable. Avoid stray hex elsewhere.
 
 Connectors after a step: `.step.visible + .connector-class { opacity: 1; }` — list connector classes in your maintainer doc.
 
-For either system, keep narrative and evidence synchronized. If a `.step` or reveal state introduces a claim, takeaway, or analysis point, the matching marker, highlight, label, callout, or comparison cue must become visible on that same step. Do not let a lower caption, bullet block, or side panel get ahead of the main visual.
-
-Each slide should carry one main thought. If the thought needs an "and", split it. Prefer a graph, picture, diagram, screenshot, demo frame, or spatial comparison that makes the implication or solution obvious before the audience reads supporting labels.
+Both systems must honor the four pillars in [`../../_shared/slide-philosophy.md`](../../_shared/slide-philosophy.md): one thought (one plain sentence, no "and"), ≤1 body sentence besides graphics/labels/titles, visual-first, forward motion. Reveal sync is non-negotiable — never let a `.step`, caption, or lower panel name evidence the audience cannot yet see.
 
 Design each slide for its densest visible state, not just the opening frame. Late-entering labels, badges, and callouts need reserved space so they remain readable and do not collide unless overlap is a deliberate visual treatment.
 
-For 3-4 statement, principle, or summary cards that build toward one synthesis, use the final progressive step as an evidence-to-conclusion overlay: keep the cards in place, reveal a dark scrim over them, and center a narrower high-contrast conclusion panel above the grid. Treat bottom-of-slide takeaways under these grids as a review failure.
+For 3–4 statement / principle / summary cards that build toward one synthesis, use the canonical evidence-to-conclusion overlay (see [`../../_shared/evidence-to-conclusion-overlay.md`](../../_shared/evidence-to-conclusion-overlay.md)) implemented via the deck's progressive-step mechanism. Bottom-of-slide takeaways under those grids are a review failure.
 
 ---
 
@@ -128,22 +126,15 @@ Renumber **highest to lowest**: IDs, comments, `SECTIONS`, step-config, promotio
 
 ## Pre-change checklist (implementation)
 
+Run the canonical [`../../_shared/stagecraft-qa.md`](../../_shared/stagecraft-qa.md) for slide-level QA. Implementation-specific items only:
+
 - [ ] CSS variables — no stray hex
 - [ ] `.sdesc` non-empty on every slide touched
-- [ ] One main thought per slide; no slide needs an "and" to explain its job
-- [ ] Text is minimal; visual proof carries the explanation
 - [ ] New `.step` items in step-config; connectors use `.step.visible +`
-- [ ] Each reveal step advances claim and matching proof together
-- [ ] Lower captions / bullets never get ahead of the main visual
-- [ ] 3-4 evidence card slides use a final conclusion overlay, not a bottom takeaway
-- [ ] Final visible state stays readable; no accidental collisions
 - [ ] Card icons ≥3rem, titles ≥1.5rem
 - [ ] Two-roadmap distinction where applicable
 - [ ] Slide counter matches count; `SECTIONS` complete and disjoint
 - [ ] Any custom SVG / JS animation replays on slide revisit, not only first load
 - [ ] Critical slides verified in Chrome and Firefox
-- [ ] "Aspect ratio" complaints were tested as composition / under-filled-canvas failures first
-- [ ] Annotations that explain chart moments use clear markers or leader stems
-- [ ] Recap / journey slides contain meaningful beats, not decorative filler boxes
 
 For SVG, cascade/Venn, and full CSS, use your deck repository’s maintainer documentation.

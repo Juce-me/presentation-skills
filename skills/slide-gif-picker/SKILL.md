@@ -13,6 +13,8 @@ Use this skill after a deck draft exists and the user wants to sprinkle in GIFs 
 
 **Skip when:** there is no deck draft yet (go through `brief-to-presentation-plan` → `presentation-plan-to-deck` first), or the audience/tone is wrong for GIFs (board meeting, compliance review, etc.).
 
+**Momentum rule:** GIFs are continuous loop motion. Loop motion competes with the deck's reveal-driven forward motion (see `../_shared/slide-philosophy.md`, pillar 4). A GIF works only on slides whose forward motion is *not already* carried by step reveals — title slides, outros, transition beats, deadpan punchlines. Do not park a looping GIF on a slide that has its own reveal sequence carrying the audience forward; the loop will pull attention sideways instead of ahead.
+
 ---
 
 ## Prerequisites
@@ -40,6 +42,7 @@ Bad candidates (skip by default):
 - Decision / ask / approval slides
 - Architecture diagrams, technical deep-dives
 - Anything the audience needs to read carefully
+- **Slides that already carry forward motion through step reveals** — loop motion fights the reveal sequence
 
 Present the candidate list to the user and let them add/remove slides. **One list, one confirmation** — do not ask per-slide at this stage.
 
@@ -133,6 +136,7 @@ Two things:
 
 - Never add a GIF to every slide — restraint is the point. If the user says "all of them," push back once.
 - Preserve one main thought per slide. A GIF should reinforce the beat, not compete with the message or force more text.
+- Respect the body-text ceiling: at most one sentence on the slide besides the GIF, the title, and labels (see `../_shared/slide-philosophy.md`).
 - Keyword should describe the **emotion or beat** of the slide, not its literal content. "Confused Dory" works; "data pipeline failure" does not.
 - Respect deck tone — skip the skill entirely if the audience/setting is wrong, even if the user asked for it. Surface the mismatch first.
 - Never commit a secret. If `GIPHY_API_KEY` ends up in the deck file, scrub it.

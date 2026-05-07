@@ -13,6 +13,8 @@ Use this skill when the deck already exists and needs critical review plus concr
 
 The main job is not cosmetic polish. It is to judge whether the deck tells the right story, in the right order, for the right audience, and then tighten it.
 
+**Canonical slide rules:** load [`../_shared/slide-philosophy.md`](../_shared/slide-philosophy.md). Any pillar violation is a blocking finding: one thought (one plain sentence, no "and"), minimum text (≤1 sentence besides graphics/labels/titles), visual-first, forward motion (default to step reveals; 10–35 s pace; named transition; reveal sync; replay on revisit).
+
 ---
 
 ## Supported scenario
@@ -43,9 +45,13 @@ Check for:
 - missing stakes
 - repetitive slides
 - overloaded slides
-- slides with more than one main thought
+- slides with more than one main thought (fails one-sentence test or needs an "and")
+- slides carrying more than one body sentence besides graphics, labels, and titles
 - slides whose implication, decision, or solution is buried in text instead of visible in the composition
 - text-heavy slides that should be rebuilt around a graph, picture, diagram, screenshot, demo frame, or spatial comparison
+- static slides where a step reveal would have carried the story forward
+- slides whose forward transition to the next slide is unclear
+- slides that would need a full minute or more to read in a live room (fails the 10–35 s/slide pace)
 - abrupt transitions
 - unsupported claims
 - weak landing or no real ending
@@ -128,29 +134,7 @@ When reviewing, use this structure:
    - Why it matters
    - What to change
 
-## Human stagecraft QA
-
-- Text hugging the screen edge: [yes/no + slide refs]
-- More than one main thought on a slide: [yes/no + slide refs]
-- Text-heavy where a visual would explain faster: [yes/no + slide refs]
-- Simple implication / solution buried in prose: [yes/no + slide refs]
-- Object too small for the back row: [yes/no + slide refs]
-- Empty container chrome larger than the insight: [yes/no + slide refs]
-- Claim appears before matching evidence: [yes/no + slide refs]
-- Evidence-card payoff uses conclusion overlay: [yes/no/n/a + slide refs]
-- Reveal collisions or unreadable overlap: [yes/no + slide refs]
-- Placeholder or dev-only text still visible: [yes/no + slide refs]
-- Auto-fitted instead of human-composed: [yes/no + slide refs]
-
-## Build / Runtime QA
-
-- Planned aspect ratio explicitly supported: [yes/no + notes]
-- Run path matches delivery mode: [yes/no + notes]
-- Chrome verified: [yes/no + notes]
-- Firefox verified: [yes/no + notes]
-- Safari required and verified: [yes/no/n/a + notes]
-- Custom animation replays on revisit: [yes/no + slide refs]
-- Visual system / style contrast feels intentional: [yes/no + slide refs]
+[Use the canonical reporting format from [`../_shared/stagecraft-qa.md`](../_shared/stagecraft-qa.md) — both Human stagecraft QA and Build / Runtime QA sections.]
 
 ## Suggested update plan
 
@@ -169,14 +153,15 @@ If there are no major issues, say that explicitly and call out any residual risk
 - Protect the through-line; do not add slides that dilute it.
 - If two slides do the same job, merge or remove one.
 - If one slide does too many jobs, split it.
-- If one slide carries more than one main thought, split it before rewriting copy.
+- If one slide carries more than one main thought (one-sentence test fails or it needs an "and"), split it before rewriting copy.
+- If a slide carries more than one body sentence besides graphics, labels, and titles, cut to the one sentence that lands the thought; let the visual carry the rest.
 - If the audience has to read paragraphs or stacked bullets to understand the point, replace the prose with a graph, picture, diagram, screenshot, demo frame, or spatial comparison.
+- If a slide is static end-to-end and there is a natural step reveal that would carry momentum, add it.
 - Each slide should land a simple implication, decision, or solution. If that outcome is buried in supporting text, redesign the visual hierarchy.
 - Keep audience needs above source-material completeness.
-- Stagecraft QA failures are blocking. A deck with any `yes` answer in the final checklist is not done.
+- Stagecraft QA failures are blocking. A deck with any `yes` answer in the canonical checklist is not done.
 - Missing runtime/build requirements are blocking when the deck depends on them.
-- For any fragment, reveal, or animation sequence, require narrative and evidence to advance together on the same step.
-- Replace bottom takeaways under 3-4 evidence cards with a final conclusion overlay that dims the cards and centers the synthesis above them.
+- Replace bottom takeaways under 3–4 evidence cards with the canonical evidence-to-conclusion overlay (see [`../_shared/evidence-to-conclusion-overlay.md`](../_shared/evidence-to-conclusion-overlay.md)).
 - Preserve intentional style contrast in multi-act decks; remove accidental inconsistency.
 - Preserve intentional ugly, parody, or contrast when it is clearly part of the joke or rhetorical move. Remove only the accidental machine-looking composition.
 
@@ -212,48 +197,11 @@ Each split slide gets its own job, its own title, and its own reveal logic. Pref
 
 ## Human stagecraft QA
 
-Before calling a deck complete, run a mandatory **human stagecraft QA** pass. Judge the slides as stage objects for a live audience, not as browser screenshots.
+Run the canonical pass in [`../_shared/stagecraft-qa.md`](../_shared/stagecraft-qa.md). It is a blocking completion gate.
 
-Hard rules:
-
-- **Respect the chosen stage.** If the deck is meant for a standard wide screen or an intentional vertical screen, the composition should clearly use that space on purpose.
-- **One thought at room scale.** The slide's title and dominant visual should make one main thought obvious without asking the audience to read a dense block.
-- **Visuals carry explanation.** Prefer graphs, pictures, diagrams, screenshots, demos, and spatial comparisons over prose. Text should label, not become the slide.
-- **No auto-fit look.** Headlines, wordmarks, and hero objects must keep visible breathing room from the slide edges. If a long token or product name starts hugging the edge, split it, resize it, or constrain it to a column.
-- **No tiny idea objects.** Ban micro-demos, tiny dots, thin labels, miniature navigation markers, and other subscale elements unless the whole slide is about that object and it is enlarged enough to command attention.
-- **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
-- **Reveal states must sync story to proof.** If a step introduces a claim, takeaway, or analysis point, the matching marker, highlight, label, callout, or comparison cue must appear on that same step. Lower captions and bullets cannot get ahead of the main visual.
-- **Payoff hierarchy must be obvious.** The main lesson, delta, or result cannot sit as a muted footer under a giant container. If it is the point, it must be visually dominant.
-- **Evidence-card payoffs use overlays.** When 3-4 visible cards build one argument, the final reveal should darken the cards into context and put the conclusion in a centered high-contrast panel.
-- **No audience-facing scaffolding.** Never leave placeholder URLs, fake QR codes, TODO text, implementation reminders, or backstage instructions on visible slides.
-- **No accidental reveal collisions.** Late-entering elements must remain readable and keep breathing room. If the final reveal creates overlap or crowding, redesign or split the slide.
-- **Navigation and recap must clarify the path.** Progress bars, journey grids, section labels, and "you are here" cues must reinforce story orientation.
-- **Style contrast must read as intentional.** If one section is plain, ugly, deadpan, or parody, that should feel authored rather than broken.
-- **Distinguish intentional ugly from accidental ugly.** If a deck uses parody or contrast on purpose, preserve that; do not "fix" the joke. But do not let accidental machine-looking composition leak into the polished sections.
-
-Final review checklist:
-
-- any text hugging the screen edge?
-- any slide with more than one main thought?
-- any text-heavy slide where a visual would explain faster?
-- any slide whose simple implication, decision, or solution is buried in prose?
-- any object too small to notice from the back row?
-- any slide where empty container chrome is larger than the insight?
-- any claim, caption, or bullet visible before its matching evidence appears?
-- any 3-4 evidence card slide using a bottom takeaway instead of a conclusion overlay?
-- any reveal step where late-entering elements collide or become hard to read?
-- any placeholder or dev-only text still visible?
-- any slide that feels auto-fitted instead of composed by a human?
-- any slide where the complaint sounds like "aspect ratio" but the real problem is empty or badly used canvas?
-- any chart, flamegraph, or code panel hugging the footer instead of commanding the stage?
-- any related slides where the dates, thresholds, or result numbers do not line up?
-- any custom animation that fails to replay when revisiting the slide?
-- any slide that behaves differently enough in Firefox to change readability or meaning?
-- any missing or unclear runtime requirement that could break delivery?
-- any act-level visual language shift that feels accidental instead of intentional?
-- any recap / journey slide filled with decorative or empty boxes?
-
-If any answer is **yes**, the review is not complete. Revise the slide, then run the pass again. Only call the deck done when every answer is **no**.
+- If you are reviewing only, report every failed checklist item as a finding and do not call the deck ready.
+- If you are updating the deck, revise and re-check until every checklist answer is **no**.
+- For HTML decks, verify the critical slides in Chrome and Firefox before declaring the deck done.
 
 ---
 

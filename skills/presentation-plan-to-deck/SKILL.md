@@ -11,6 +11,8 @@ description: >-
 
 Use this skill after the presentation plan is settled. The job here is to turn the plan into a deck with accurate structure, layout, and reveal logic.
 
+**Canonical slide rules:** load [`../_shared/slide-philosophy.md`](../_shared/slide-philosophy.md) before building. Every slide must satisfy all four pillars: one thought (one plain sentence, no "and"), minimum text (≤1 sentence besides graphics/labels/titles), visual-first, forward motion (default to step reveals; 10–35 s pace; named transition; reveal sync; replay on revisit).
+
 For new decks, **default to the simple stack** described in [references/simple-reveal-deck.md](references/simple-reveal-deck.md) — Reveal.js 5.x from CDN, single `index.html`, no build tool, no installed dependencies.
 
 If the project already has a bespoke single-file HTML deck with custom reveal systems, also read [references/html-slide-deck.md](references/html-slide-deck.md) and the project maintainer documentation. Do not retrofit legacy patterns onto a new deck.
@@ -136,7 +138,7 @@ If the plan is weak or incomplete, stop and send it back to **`brief-to-presenta
    - when 3-4 statement, principle, or summary cards build evidence toward one takeaway, reveal the cards first, then reveal the takeaway as a centered conclusion overlay instead of placing it below the grid
 
 7. **Design for presentation readability**
-   Prefer large readable text, strong contrast, clean visual hierarchy, and room-scale composition. Use the minimum text needed to label the idea; let graphs, pictures, diagrams, screenshots, demos, or spatial comparisons carry the explanation. Avoid website-density slides and bullet-heavy slides.
+   Large readable text, strong contrast, clean visual hierarchy, room-scale composition. The four pillars in [`../_shared/slide-philosophy.md`](../_shared/slide-philosophy.md) are the bar — especially the one-sentence text ceiling and the default-to-reveals rule. No website-density slides, no bullet-heavy slides.
 
 8. **Produce implementation-ready deck content**
    The output can be:
@@ -162,7 +164,8 @@ Use this format when building or handing off the deck:
 
 - Purpose: [what this slide must achieve]
 - Audience takeaway: [what they should leave with]
-- Main thought: [one sentence only; split the slide if this needs an "and"]
+- Main thought: [one plain sentence; split the slide if this needs an "and"]
+- Body text budget: [≤1 sentence besides graphics, labels, and titles]
 - Simple implication / solution: [what the thought makes obvious]
 - Scenario role: [hook / stakes / investigation / fix / result / lesson / recap / other]
 - Content:
@@ -178,37 +181,15 @@ Use this format when building or handing off the deck:
   2. [second element]
 - Build notes: [built-in fragments only / custom SVG / custom JS / replay requirement]
 - QA checks: [specific readability, replay, browser, or spacing checks]
-- Transition forward: [why the next slide follows]
+- Transition forward: [what the slide hints at or sets up; why the next slide naturally follows]
+- Estimated time on screen: [target 10–35 s; if longer, split]
 ```
 
 ---
 
 ## Evidence-to-conclusion overlay
 
-Use this treatment when a slide contains 3-4 statement cards, principle blocks, or summary blocks that build evidence toward one synthesis.
-
-Default rule: **replace bottom-of-slide takeaways with a final conclusion overlay.** The audience should first see the supporting statements, then get the "so what?" as a clean reveal above them.
-
-Reveal order:
-
-1. Reveal the underlying statement blocks in place.
-2. On the next step, keep the blocks visible but dim them with a strong dark scrim.
-3. Place a centered conclusion block on top of the statements.
-
-Visual contract:
-
-- the overlay is narrower than the full grid so it reads as distilled synthesis, not another card
-- use a dark panel background with high contrast against the slide
-- use a small mono title in accent yellow, such as `THE DECISION`, `WHAT THIS MEANS`, or `WHAT WE DO DIFFERENTLY`
-- set the body in pure white
-- add a subtle accent border and soft shadow
-- keep the underlying cards recognizable but visually subordinate
-
-Narrative fit:
-
-- use for "What We'll Do Differently", "The Model We Actually Run", "What This Really Means", "The Decision", and similar synthesis beats
-- avoid using it for unrelated card collections where there is no single conclusion
-- if the slide has more than 4 evidence blocks, split the evidence or reduce it before using this treatment
+When a slide has 3–4 statement / principle / summary cards building to one synthesis, use the canonical treatment in [`../_shared/evidence-to-conclusion-overlay.md`](../_shared/evidence-to-conclusion-overlay.md). Replace any bottom-of-slide takeaway with the overlay reveal (cards → scrim + centered conclusion panel).
 
 ---
 
@@ -233,26 +214,21 @@ Example output:
 
 ## Accuracy rules
 
+**Slide pillars are blocking.** Any pillar violation in [`../_shared/slide-philosophy.md`](../_shared/slide-philosophy.md) — one thought, ≤1 body sentence besides graphics/labels/titles, visual-first, forward motion — fails the deck.
+
+Deck-build-specific rules on top of the pillars:
+
 - Every slide must trace back to the approved plan.
-- **One thought per slide is blocking.** If a slide carries two main claims, two explanations, or a claim plus an unrelated aside, split it.
-- **Minimum text is the default.** A slide should not explain itself through paragraph copy or stacked bullets when a graph, picture, diagram, screenshot, demo frame, or spatial comparison can carry the idea faster.
-- **The visual should make the solution feel simple.** The audience should be able to see the implication before reading supporting labels.
-- Layout and animation must reinforce meaning, not decorate it.
-- If a slide feels crowded, split it instead of shrinking everything.
-- The opening must establish context quickly.
-- The ending must land on a takeaway, action, or decision, not just stop.
-- **The live-talk canvas must be explicit.** For HTML decks, set a presentation size that matches the planned aspect ratio rather than assuming browser defaults will behave well enough. Standard stage decks usually use 16:9; vertical decks may intentionally use 9:16.
-- **Browser support is part of the build contract.** For HTML decks, latest Chrome and latest Firefox are mandatory. Safari should be checked when local Mac presentation or direct browser opening is part of the delivery path.
-- **Style must be intentional.** State the deck's palette, typography, density, spacing rhythm, and whether section-to-section contrast is deliberate.
-- **Before / after contrast must read as authored.** If one act is intentionally plain, ugly, or deadpan, make sure that contrast feels purposeful rather than accidentally unfinished.
-- **Numeric results are never prose.** Any slide carrying a result, improvement, change, target, or comparison (latency, adoption %, cost delta, error rate, etc.) gets a visual treatment per **`stats-visualization`** — hero number, before/after, bars, gauge, delta callout, or annotated change chart — with a reason label explaining *why* the number moved. Inline phrasing like "340 ms vs 65 ms" is a bug, not a slide.
-- **Reveal sync is mandatory.** For any fragment, reveal, or animation sequence, narrative and evidence land together. Do not reveal a claim, takeaway, caption, or bullet before the chart marker, highlight, labeled region, callout, or comparison cue that proves it.
-- **Every reveal state must remain readable.** New labels, callouts, captions, and badges cannot collide, overlap into ambiguity, or fight for the same space unless that collision is a clearly intentional artistic move.
-- **Keep the stack simple.** Default to Reveal.js 5.x from CDN, single `index.html`, no build tool, no installed dependencies (see [references/simple-reveal-deck.md](references/simple-reveal-deck.md)). Do not introduce a bundler, package manager, CSS framework, or bespoke navigation system unless a concrete requirement demands it and the default has been tried first. Every added dependency must earn its complexity.
-- **Treat "aspect ratio" complaints as composition bugs first.** If the deck is already using its intended canvas, whether 16:9 or 9:16, but the slide feels cropped, tiny, footer-heavy, or strangely empty, redesign the slide composition instead of blaming global deck size.
-- **Related slides must share one incident model.** If the deck contains hook, diagnosis, fix, and result slides about the same event, the thresholds, timeline, and before/after numbers must line up exactly.
-- **Custom motion must replay.** Any chart, SVG, or scripted visual that animates on slide entry must also replay when revisiting the slide, not only on first render. The implementation should state how replay is triggered or remounted.
-- **Firefox is mandatory QA for HTML decks.** A deck is not complete when it only looks right in Chrome.
+- The opening establishes context quickly. The ending lands on a takeaway, action, or decision — it does not just stop.
+- Layout and animation reinforce meaning, not decorate it. If a slide feels crowded, split it instead of shrinking everything.
+- **The live-talk canvas is explicit.** For HTML decks, set a presentation size that matches the planned aspect ratio rather than assuming browser defaults will behave well enough. 16:9 for standard stage; 9:16 for intentional vertical.
+- **Browser support is part of the build contract.** Latest Chrome and latest Firefox are mandatory for HTML decks. Add Safari when local Mac presentation or direct browser opening is part of the delivery path.
+- **Style is intentional.** State the deck's palette, typography, density, spacing rhythm, and whether section-to-section contrast is deliberate.
+- **Before / after contrast reads as authored.** If one act is intentionally plain, ugly, or deadpan, make sure that contrast feels purposeful rather than accidentally unfinished.
+- **Numeric results are never prose.** Any slide carrying a result, improvement, change, target, or comparison gets a visual treatment per **`stats-visualization`** — hero number, before/after, bars, gauge, delta callout, or annotated change chart — with a reason label explaining *why* the number moved. Inline phrasing like "340 ms vs 65 ms" is a bug.
+- **Keep the stack simple.** Default to Reveal.js 5.x from CDN, single `index.html`, no build, no installed dependencies (see [references/simple-reveal-deck.md](references/simple-reveal-deck.md)). Do not add a bundler, package manager, CSS framework, or bespoke navigation system unless a concrete requirement demands it and the default has been tried first.
+- **Treat "aspect ratio" complaints as composition bugs first.** If the deck is already using its intended canvas but the slide feels cropped, tiny, footer-heavy, or strangely empty, redesign the slide composition instead of blaming global deck size.
+- **Related slides share one incident model.** Hook, diagnosis, fix, and result slides about the same event must use exactly the same thresholds, timeline, and before/after numbers.
 - **Critical reveal-heavy decks need concrete QA checks.** If the deck depends on timing, replay, or annotation placement, write explicit per-slide checks instead of relying on vague manual confidence.
 - **Decorative recap grids are banned.** Storyboard / journey / recap slides must contain meaningful story beats, not empty or interchangeable tiles.
 
@@ -260,39 +236,9 @@ Example output:
 
 ## Human stagecraft QA
 
-Before a deck is considered complete, run a mandatory **human stagecraft QA** pass. Judge every slide as something meant to land in a live room, not merely fit inside a viewport.
+Before a deck is considered complete, run the canonical **human stagecraft QA** pass in [`../_shared/stagecraft-qa.md`](../_shared/stagecraft-qa.md). It is a blocking gate, not optional polish.
 
-Hard rules:
-
-- **Use the chosen canvas on purpose.** Whether the deck is 16:9 or 9:16, it should feel composed for that stage instead of looking like another document scaled into the frame.
-- **One thought at room scale.** The audience should be able to name the slide's one main thought from the dominant visual and title alone.
-- **No auto-fit look.** Headlines, wordmarks, and hero objects must keep visible breathing room from the slide edges. If a long token or product name starts hugging the edge, split it, resize it, or constrain it to a column.
-- **Visuals carry explanation.** If the slide is mostly text, redesign it around a graph, picture, diagram, screenshot, demo frame, or split it.
-- **No tiny idea objects.** Ban micro-demos, tiny dots, thin labels, miniature navigation markers, and other subscale elements unless the whole slide is about that object and it is enlarged enough to command attention.
-- **Evidence must dominate proof slides.** On chart, diagram, or flamegraph slides, the evidence should be the biggest thing after the headline. Thin lines with tiny annotations are not enough for a live room.
-- **Reveal states must sync story to proof.** If a fragment introduces a claim, takeaway, or analysis point, the matching marker, highlight, label, callout, or comparison cue must appear on that same step. Lower captions and bullets cannot outrun the main visual.
-- **Payoff hierarchy must be obvious.** The main lesson, delta, or result cannot sit as a muted footer under a giant container. If it is the point, it must be visually dominant.
-- **Evidence-card payoffs use overlays.** When 3-4 statement, principle, or summary cards build to one synthesis, the final reveal should dim the cards and place the conclusion above them, not tuck the takeaway below the grid.
-- **No audience-facing scaffolding.** Never leave placeholder URLs, fake QR codes, TODO text, implementation reminders, or backstage instructions on visible slides.
-- **No accidental reveal collisions.** As elements enter across steps, they must remain readable, keep breathing room, and avoid unintended overlap. If the layout only works before the final fragment appears, redesign or split the slide.
-- **Navigation must earn its place.** Progress bars, recap grids, act labels, and "you are here" cues should clarify the story path, not add decorative noise.
-- **Distinguish intentional ugly from accidental ugly.** If a deck uses parody or contrast on purpose, preserve that; do not "fix" the joke. But do not let accidental machine-looking composition leak into the polished sections.
-
-Final review checklist:
-
-- any slide with more than one main thought?
-- any slide whose solution or implication is buried in text instead of visible in the composition?
-- any text-heavy slide where a graph, picture, diagram, screenshot, demo frame, or spatial comparison would explain it faster?
-- any text hugging the screen edge?
-- any object too small to notice from the back row?
-- any slide where empty container chrome is larger than the insight?
-- any claim, caption, or bullet visible before its matching evidence appears?
-- any 3-4 evidence card slide using a bottom takeaway instead of a conclusion overlay?
-- any reveal step where late-entering elements collide or become hard to read?
-- any placeholder or dev-only text still visible?
-- any slide that feels auto-fitted instead of composed by a human?
-
-If any answer is **yes**, revise the slide and run the pass again. Do not call the deck complete until every answer is **no**.
+Judge every slide as a stage object for a live room, not as a browser screenshot. Revise and re-check until every checklist answer is **no**.
 
 ---
 

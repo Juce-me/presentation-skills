@@ -12,6 +12,8 @@ description: >-
 
 Use this skill whenever a slide contains a number that represents a **result, improvement, change, target, or comparison**. The rule: numbers that carry meaning deserve visual weight — never drop them as inline prose.
 
+This skill is the visual-first treatment (pillar 3 of `../_shared/slide-philosophy.md`) for numeric slides. Reveal sync and replay-on-revisit (pillar 4) apply to every annotated chart and stepwise number reveal here.
+
 **Skip when:** the number is incidental context ("founded in 2014", "Q3 2025") and is not the point of the slide.
 
 ---
