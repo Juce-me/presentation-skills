@@ -1,0 +1,196 @@
+# Simple Reveal.js deck (default stack)
+
+Companion to **`presentation-plan-to-deck`**. Use this as the **default stack** for new decks unless there is a concrete reason to do something else.
+
+The goal: a deck that works with nothing installed. Open `index.html` in a browser, present.
+
+---
+
+## Stack
+
+| | |
+|---|---|
+| **Stack** | Reveal.js 5.x from CDN, vanilla HTML / CSS / JS, single `index.html` |
+| **Dist** | No build tool, no package manager, no dependencies installed |
+| **Run** | Open `index.html` in a browser. That is the whole workflow. |
+| **Ship** | Commit the HTML file. Host on any static server (GitHub Pages, Netlify drop, a shared drive) — or just send the file. |
+
+---
+
+## Why this default
+
+- **Nothing to install** — contributors don't need Node, npm, or a build step. Opening the file *is* the dev loop.
+- **Nothing to break** — no dependency drift, no lockfile churn, no framework upgrades.
+- **Nothing to explain** — any web developer can read the file top to bottom and understand it in 10 minutes.
+- **Portable** — attach to an email, drop in Slack, host behind any static server.
+
+The rule: **start here**. Add complexity only when a specific requirement forces it (see "When to upgrade" below).
+
+---
+
+## Minimal skeleton
+
+A complete working deck in one file:
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deck title</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reset.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme" />
+
+  <style>
+    /* Your tokens + slide styles inline here. Keep it small. */
+    :root {
+      --accent: #4f8eff;
+      --fg: #eaeaea;
+      --bg: #0c0d14;
+    }
+    .reveal h1, .reveal h2 { letter-spacing: -0.02em; }
+    .reveal .hero { font-size: clamp(4rem, 12vw, 9rem); font-weight: 900; line-height: 1; }
+    .reveal .reason { opacity: 0.6; font-size: 1.1rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Deck title</h1>
+        <p>Subtitle / speaker / date</p>
+      </section>
+
+      <section>
+        <h2>A point</h2>
+        <p class="fragment">First reveal</p>
+        <p class="fragment">Second reveal</p>
+      </section>
+
+      <section>
+        <div class="hero">−81%</div>
+        <div>page load time</div>
+        <div class="reason">after adding a Redis cache in front of the DB</div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      transition: 'fade',
+    });
+  </script>
+</body>
+</html>
+```
+
+That is a working deck. No build. No install. Nothing missing.
+
+---
+
+## Conventions inside this stack
+
+- **One file.** Keep `<style>` and `<script>` inline in `index.html` until there is a real reason to split. Splitting is a cost, not a default.
+- **Use Reveal's built-ins** (`.fragment`, `data-auto-animate`, `data-transition`) before writing custom JS. If Reveal does it, use Reveal's version.
+- **Pin the major version** (`reveal.js@5`) in CDN URLs so the deck doesn't drift when the CDN rolls forward.
+- **Tokens as CSS vars** in `:root`. No stray hex colors scattered through the file.
+- **Slide anatomy**: one `<section>` per slide. Vertical stacks via nested `<section>` only when the stack is genuinely hierarchical.
+- **Honor the four pillars** from [`../../_shared/slide-philosophy.md`](../../_shared/slide-philosophy.md): one thought per section (one plain sentence, no "and"), at most one body sentence besides graphics/labels/titles, visual-first, forward motion. Two thoughts → two sections.
+- **Default to `.fragment` reveals.** Static slides are the exception; most slides should reveal at least one element after the opening state to honor pillar 4.
+- **Reveal order** uses `.fragment` (and `.fragment.fade-up`, `.fade-in-then-out`, etc.) — match the spoken story.
+- **Sync claim and proof on the same fragment.** A caption, bullet, or footer panel must never name evidence the audience cannot yet see.
+- **Make resulting thoughts dominant.** If a lesson, standard, decision, pattern, principle, or "so what" is the slide's payoff, reveal it last as a hero statement or conclusion overlay. Do not leave it as a footer, caption, subtitle, or quiet bridge line.
+- **Design for the final fragment state.** Reserve space for late-entering elements so labels and callouts stay readable; no accidental collisions.
+- **Use the canonical evidence-to-conclusion overlay** for any 3–4 card synthesis slide ([`../../_shared/evidence-to-conclusion-overlay.md`](../../_shared/evidence-to-conclusion-overlay.md)).
+
+## Evidence-to-conclusion overlay
+
+For 3–4 statement cards that build to one synthesis, use the canonical pattern in [`../../_shared/evidence-to-conclusion-overlay.md`](../../_shared/evidence-to-conclusion-overlay.md). The Reveal.js implementation is in that file.
+
+When a slide uses custom JS charts, remount them on slide entry instead of assuming first render is enough:
+
+```js
+function mountChartForSlide(slide) {
+  const name = slide.dataset.chart;
+  const mount = slide.querySelector('[data-chart-mount]');
+  if (!name || !mount) return;
+  mount.innerHTML = '';
+  charts[name](mount, slide.dataset.chartVariant || 'default');
+}
+
+Reveal.on('ready', (e) => mountChartForSlide(e.currentSlide));
+Reveal.on('slidetransitionend', (e) => mountChartForSlide(e.currentSlide));
+```
+
+This is the default pattern when the deck depends on motion to explain the story.
+
+## Browser verification
+
+Do not trust one browser preview.
+
+For HTML decks, run a local static server and verify in both Chrome and Firefox:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000` in the latest Chrome and the latest Firefox.
+
+Check:
+
+- the slide still feels intentionally composed at full-screen size
+- custom SVG / chart animation replays when revisiting the slide
+- labels, callouts, and code lines stay readable in both browsers
+
+---
+
+## When to upgrade (and when not to)
+
+Stick with the default unless one of these is true:
+
+| Upgrade | Only when |
+|---------|-----------|
+| Add a bundler (Vite, esbuild) | You need TypeScript, npm components, or tree-shaking — and the deck is long-lived / frequently edited |
+| Split into multiple files | The single file exceeds ~1500 lines **and** multiple people are editing concurrently |
+| Switch to Slidev | The deck is code-demo-heavy and benefits from MDX + code runners |
+| Switch to Keynote / PowerPoint | The audience / environment requires a native `.pptx` / `.key` file |
+| Write a bespoke framework | Never as a starting point. Only if Reveal.js genuinely cannot express what the deck needs, and you have proven that by trying |
+
+Every upgrade earns its complexity or it does not happen.
+
+---
+
+## Anti-patterns
+
+- Installing a framework / build tool for a 10-slide talk.
+- Pulling in a CSS library (Tailwind, Bootstrap) when a dozen CSS variables would do.
+- Copying a previous deck's giant custom navigation system into a new project "for consistency".
+- Splitting into many small files before the deck is big enough to need it.
+- Vendoring Reveal.js locally when the CDN is fine (do this only for offline / air-gapped presentations).
+- A thin chart parked near the footer under a huge empty field.
+- A label that talks about a data point without a visible marker or leader stem.
+- A code or chart card centered inside a much larger empty panel with no compositional reason.
+- A resulting thought, lesson, standard, decision, pattern, principle, or "so what" sitting as a small footer/caption/subtitle instead of a dominant final payoff.
+- A 3-4 statement card grid with the conclusion parked as a bottom takeaway instead of revealed as an overlay.
+- A "journey" grid made of decorative or empty tiles that do not tell the story.
+- A chart that animates only on the first visit or only in one browser.
+
+---
+
+## Checklist before adding complexity
+
+- [ ] Is there a concrete requirement the default stack cannot meet?
+- [ ] Have I tried solving it with Reveal's built-in features first?
+- [ ] Will anyone other than me open this file in the next 12 months? If yes, does the extra complexity pay for the reading cost?
+- [ ] Am I adding this because I need it, or because it feels "more professional"?
+
+If the honest answer to the last question is the second one, stop and stay simple.
