@@ -65,7 +65,7 @@ For that scenario, the skills now expect the plan and deck build to define:
 
 Worked example:
 
-- [`docs/examples/proper-presentation-deck.md`](docs/examples/proper-presentation-deck.md) — example of a presentation made with `presentation-skills`, based on `/Users/a.feygin/Documents/proper-presentation-deck`
+- [`docs/examples/proper-presentation-deck.md`](docs/examples/proper-presentation-deck.md) — example of a presentation made with `presentation-skills`, based on a separate deck project built with the workflow
 
 ## Regression hardening
 

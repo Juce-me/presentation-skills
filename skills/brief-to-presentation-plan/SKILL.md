@@ -133,7 +133,7 @@ Every plan must be saved to the target project's specs folder using a dated, des
 Example:
 
 ```
-/Users/a.feygin/Documents/proper-presentation-deck/docs/specs/2026-04-17-presentation-skills-lightning-talk-design.md
+<project-root>/docs/specs/2026-04-17-presentation-skills-lightning-talk-design.md
 ```
 
 Rules:

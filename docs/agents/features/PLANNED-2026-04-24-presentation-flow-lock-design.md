@@ -1,5 +1,9 @@
 # Presentation Flow Lock Design
 
+Status: planned
+Type: feature
+Author: Juce-me
+
 ## Goal
 
 Add a dedicated intermediate skill between `brief-to-presentation-plan` and `presentation-plan-to-deck` that converts an approved presentation plan into a locked narrative, style, and motion contract before any deck generation begins.
@@ -297,10 +301,10 @@ Likewise, if the primary mode is `educational`, the deck builder should not skip
 Expected repository changes:
 
 - add `skills/presentation-flow-lock/SKILL.md`
-- update [README.md](/Users/a.feygin/.codex/worktrees/d8d5/presentation-skills/README.md) workflow and skill list
-- update [skills/brief-to-presentation-plan/SKILL.md](/Users/a.feygin/.codex/worktrees/d8d5/presentation-skills/skills/brief-to-presentation-plan/SKILL.md) handoff rules
-- update [skills/presentation-plan-to-deck/SKILL.md](/Users/a.feygin/.codex/worktrees/d8d5/presentation-skills/skills/presentation-plan-to-deck/SKILL.md) to require the flow lock for relevant decks
-- update [skills/deck-review-update/SKILL.md](/Users/a.feygin/.codex/worktrees/d8d5/presentation-skills/skills/deck-review-update/SKILL.md) to validate against the flow lock
+- update `README.md` workflow and skill list
+- update `skills/brief-to-presentation-plan/SKILL.md` handoff rules
+- update `skills/presentation-plan-to-deck/SKILL.md` to require the flow lock for relevant decks
+- update `skills/deck-review-update/SKILL.md` to validate against the flow lock
 - optionally add a small example or template reference for `flow-lock.md`
 
 ## Risks and tradeoffs

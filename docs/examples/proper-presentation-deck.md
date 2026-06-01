@@ -1,8 +1,6 @@
 # Worked Example: A Presentation Made With presentation-skills
 
-This repository now includes a concrete worked example based on a presentation made with `presentation-skills` at:
-
-`/Users/a.feygin/Documents/proper-presentation-deck`
+This repository documents a concrete worked example based on a separate deck project built with `presentation-skills` (an external project, not included in this repo). In the references below, `<deck-project>` stands for that deck's project root.
 
 Use this example when you need a reference for a **story-driven engineering presentation** that depends on:
 
@@ -17,9 +15,9 @@ Treat this as a reference example, not a template to copy blindly. Reuse the pat
 
 ## Source files
 
-- Design spec: [`/Users/a.feygin/Documents/proper-presentation-deck/docs/specs/2026-04-17-presentation-skills-lightning-talk-design.md`](/Users/a.feygin/Documents/proper-presentation-deck/docs/specs/2026-04-17-presentation-skills-lightning-talk-design.md)
-- Deck implementation: [`/Users/a.feygin/Documents/proper-presentation-deck/index.html`](/Users/a.feygin/Documents/proper-presentation-deck/index.html)
-- QA script: [`/Users/a.feygin/Documents/proper-presentation-deck/scripts/deck-qa.js`](/Users/a.feygin/Documents/proper-presentation-deck/scripts/deck-qa.js)
+- Design spec: `<deck-project>/docs/specs/2026-04-17-presentation-skills-lightning-talk-design.md`
+- Deck implementation: `<deck-project>/index.html`
+- QA script: `<deck-project>/scripts/deck-qa.js`
 
 ## Why this example matters
 
